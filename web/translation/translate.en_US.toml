@@ -50,7 +50,6 @@
 "fail" = "Failed"
 "comment" = "Comment"
 "success" = "Successfully"
-"lastOnline" = "Last Online"
 "getVersion" = "Get Version"
 "install" = "Install"
 "clients" = "Clients"
@@ -72,20 +71,6 @@
 "emptyReverseDesc" = "No added reverse proxies."
 "somethingWentWrong" = "Something went wrong"
 
-[subscription]
-"title" = "Subscription info"
-"subId" = "Subscription ID"
-"status" = "Status"
-"downloaded" = "Downloaded"
-"uploaded" = "Uploaded"
-"expiry" = "Expiry"
-"totalQuota" = "Total quota"
-"individualLinks" = "Individual links"
-"active" = "Active"
-"inactive" = "Inactive"
-"unlimited" = "Unlimited"
-"noExpiry" = "No expiry"
-
 [menu]
 "theme" = "Theme"
 "dark" = "Dark"
@@ -96,6 +81,7 @@
 "xray" = "Xray Configs"
 "logout" = "Log Out"
 "link" = "Manage"
+"navigation" = "navigation"
 
 [pages.login]
 "hello" = "Hello"
@@ -147,8 +133,6 @@
 "xraySwitchVersionPopover" = "Xray updated successfully"
 "geofileUpdateDialog" = "Do you really want to update the geofile?"
 "geofileUpdateDialogDesc" = "This will update the #filename# file."
-"geofilesUpdateDialogDesc" = "This will update all geofiles."
-"geofilesUpdateAll" = "Update all"
 "geofileUpdatePopover" = "Geofile updated successfully"
 "dontRefresh" = "Installation is in progress, please do not refresh this page"
 "logs" = "Logs"
@@ -166,8 +150,6 @@
 "getConfigError" = "An error occurred while retrieving the config file."
 
 [pages.inbounds]
-"allTimeTraffic" = "All-time Traffic"
-"allTimeTrafficUsage" = "All Time Total Usage"
 "title" = "Inbounds"
 "totalDownUp" = "Total Sent/Received"
 "totalUsage" = "Total Usage"
@@ -177,13 +159,10 @@
 "remark" = "Remark"
 "protocol" = "Protocol"
 "port" = "Port"
-"portMap" = "Port Mapping"
 "traffic" = "Traffic"
 "details" = "Details"
 "transportConfig" = "Transport"
 "expireDate" = "Duration"
-"createdAt" = "Created"
-"updatedAt" = "Updated"
 "resetTraffic" = "Reset Traffic"
 "addInbound" = "Add Inbound"
 "generalActions" = "General Actions"
@@ -244,9 +223,6 @@
 "exportInbound" = "Export Inbound"
 "import" = "Import"
 "importInbound" = "Import an Inbound"
-"periodicTrafficResetTitle" = "Traffic Reset"
-"periodicTrafficResetDesc" = "Automatically reset traffic counter at specified intervals"
-"lastReset" = "Last Reset"
 
 [pages.client]
 "add" = "Add Client"
@@ -266,12 +242,6 @@
 "renew" = "Auto Renew"
 "renewDesc" = "Auto-renewal after expiration. (0 = disable)(unit: day)"
 
-[pages.inbounds.periodicTrafficReset]
-"never" = "Never"
-"daily" = "Daily"
-"weekly" = "Weekly"
-"monthly" = "Monthly"
-
 [pages.inbounds.toasts]
 "obtain" = "Obtain"
 "updateSuccess" = "The update was successful."
@@ -289,8 +259,7 @@
 "resetInboundClientTrafficSuccess" = "Traffic has been reset."
 "trafficGetError" = "Error getting traffics."
 "getNewX25519CertError" = "Error while obtaining the X25519 certificate."
-"getNewmldsa65Error" = "Error while obtaining mldsa65."
-"getNewVlessEncError" = "Error while obtaining VlessEnc."
+
 
 [pages.inbounds.stream.general]
 "request" = "Request"
@@ -369,21 +338,10 @@
 "timeZone" = "Time Zone"
 "timeZoneDesc" = "Scheduled tasks will run based on this time zone."
 "subSettings" = "Subscription"
-"subEnable" = "Subscription Service"
-"subEnableDesc" = "Enable/Disable the subscription service."
-"subJsonEnable" = "Enable/Disable the JSON subscription endpoint independently."
+"subEnable" = "Enable Subscription Service"
+"subEnableDesc" = "Enables the subscription service."
 "subTitle" = "Subscription Title"
 "subTitleDesc" = "Title shown in VPN client"
-"subSupportUrl" = "Support URL"
-"subSupportUrlDesc" = "Technical support link shown in the VPN client"
-"subProfileUrl" = "Profile URL"
-"subProfileUrlDesc" = "A link to your website displayed in the VPN client"
-"subAnnounce" = "Announce"
-"subAnnounceDesc" = "The text of the announce displayed in the VPN client"
-"subEnableRouting" = "Enable routing"
-"subEnableRoutingDesc" = "Global setting to enable routing in the VPN client. (Only for Happ)"
-"subRoutingRules" = "Routing rules"
-"subRoutingRulesDesc" = "Global routing rules for the VPN client. (Only for Happ)"
 "subListen" = "Listen IP"
 "subListenDesc" = "The IP address for the subscription service. (leave blank to listen on all IPs)"
 "subPort" = "Listen Port"
@@ -460,8 +418,6 @@
 "FreedomStrategyDesc" = "Set the output strategy for the network in the Freedom Protocol."
 "RoutingStrategy" = "Overall Routing Strategy"
 "RoutingStrategyDesc" = "Set the overall traffic routing strategy for resolving all requests."
-"outboundTestUrl" = "Outbound Test URL"
-"outboundTestUrlDesc" = "URL used when testing outbound connectivity."
 "Torrent" = "Block BitTorrent Protocol"
 "Inbounds" = "Inbounds"
 "InboundsDesc" = "Accepting the specific clients."
@@ -490,6 +446,9 @@
 "statsOutboundUplinkDesc" = "Enables the statistics collection for upstream traffic of all outbound proxies."
 "statsOutboundDownlink" = "Outbound Download Statistics"
 "statsOutboundDownlinkDesc" = "Enables the statistics collection for downstream traffic of all outbound proxies."
+
+[pages.navigation]
+"title" = "navigation"
 
 [pages.xray.rules]
 "first" = "First"
@@ -525,12 +484,6 @@
 "accountInfo" = "Account Information"
 "outboundStatus" = "Outbound Status"
 "sendThrough" = "Send Through"
-"test" = "Test"
-"testResult" = "Test Result"
-"testing" = "Testing connection..."
-"testSuccess" = "Test successful"
-"testFailed" = "Test failed"
-"testError" = "Failed to test outbound"
 
 [pages.xray.balancer]
 "addBalancer" = "Add Balancer"
@@ -549,12 +502,6 @@
 "psk" = "PreShared Key"
 "domainStrategy" = "Domain Strategy"
 
-[pages.xray.tun]
-"nameDesc" = "The name of the TUN interface. Default is 'xray0'"
-"mtuDesc" = "Maximum Transmission Unit. The maximum size of data packets. Default is 1500"
-"userLevel" = "User Level"
-"userLevelDesc" = "All connections made through this inbound will use this user level. Default is 0"
-
 [pages.xray.dns]
 "enable" = "Enable DNS"
 "enableDesc" = "Enable built-in DNS server"
@@ -568,8 +515,6 @@
 "disableFallbackDesc" = "Disables fallback DNS queries"
 "disableFallbackIfMatch" = "Disable Fallback If Match"
 "disableFallbackIfMatchDesc" = "Disables fallback DNS queries when the matching domain list of the DNS server is hit"
-"enableParallelQuery" = "Enable Parallel Query"
-"enableParallelQueryDesc" = "Enable parallel DNS queries to multiple servers for faster resolution"
 "strategy" = "Query Strategy"
 "strategyDesc" = "Overall strategy to resolve domain names"
 "add" = "Add Server"
@@ -630,7 +575,6 @@
 "day" = "Day"
 "days" = "Days"
 "hours" = "Hours"
-"minutes" = "Minutes"
 "unknown" = "Unknown"
 "inbounds" = "Inbounds"
 "clients" = "Clients"
@@ -663,7 +607,6 @@
 "userSaved" = "✅ Telegram User saved."
 "loginSuccess" = "✅ Logged in to the panel successfully.\r\n"
 "loginFailed" = "❗️Login attempt to the panel failed.\r\n"
-"2faFailed" = "2FA Failed"
 "report" = "🕰 Scheduled Reports: {{ .RunTime }}\r\n"
 "datetime" = "⏰ Date&Time: {{ .DateTime }}\r\n"
 "hostname" = "💻 Host: {{ .Hostname }}\r\n"
@@ -690,7 +633,6 @@
 "active" = "💡 Active: {{ .Enable }}\r\n"
 "enabled" = "🚨 Enabled: {{ .Enable }}\r\n"
 "online" = "🌐 Connection status: {{ .Status }}\r\n"
-"lastOnline" = "🔙 Last online: {{ .Time }}\r\n"
 "email" = "📧 Email: {{ .Email }}\r\n"
 "upload" = "🔼 Upload: ↑{{ .Upload }}\r\n"
 "download" = "🔽 Download: ↓{{ .Download }}\r\n"
@@ -705,6 +647,7 @@
 "refreshedOn" = "\r\n📋🔄 Refreshed On: {{ .Time }}\r\n\r\n"
 "yes" = "✅ Yes"
 "no" = "❌ No"
+
 "received_id" = "🔑📥 ID updated."
 "received_password" = "🔑📥 Password updated."
 "received_email" = "📧📥 Email updated."
@@ -716,13 +659,14 @@
 "inbound_client_data_id" = "🔄 Inbound: {{ .InboundRemark }}\n\n🔑 ID: {{ .ClientId }}\n📧 Email: {{ .ClientEmail }}\n📊 Traffic: {{ .ClientTraffic }}\n📅 Expire Date: {{ .ClientExp }}\n🌐 IP Limit: {{ .IpLimit }}\n💬 Comment: {{ .ClientComment }}\n\nYou can add the client to inbound now!"
 "inbound_client_data_pass" = "🔄 Inbound: {{ .InboundRemark }}\n\n🔑 Password: {{ .ClientPass }}\n📧 Email: {{ .ClientEmail }}\n📊 Traffic: {{ .ClientTraffic }}\n📅 Expire Date: {{ .ClientExp }}\n🌐 IP Limit: {{ .IpLimit }}\n💬 Comment: {{ .ClientComment }}\n\nYou can add the client to inbound now!"
 "cancel" = "❌ Process Canceled! \n\nYou can /start again anytime. 🔄"
-"error_add_client" = "⚠️ Error:\n\n {{ .error }}"
-"using_default_value" = "Okay, I'll stick with the default value. 😊"
-"incorrect_input" = "Your input is not valid.\nThe phrases should be continuous without spaces.\nCorrect example: aaaaaa\nIncorrect example: aaa aaa 🚫"
+"error_add_client"  = "⚠️ Error:\n\n {{ .error }}"
+"using_default_value"  = "Okay, I'll stick with the default value. 😊"
+"incorrect_input" ="Your input is not valid.\nThe phrases should be continuous without spaces.\nCorrect example: aaaaaa\nIncorrect example: aaa aaa 🚫"
 "AreYouSure" = "Are you sure? 🤔"
 "SuccessResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Result: ✅ Success"
 "FailedResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Result: ❌ Failed \n\n🛠️ Error: [ {{ .ErrorMessage }} ]"
 "FinishProcess" = "🔚 Traffic reset process finished for all clients."
+
 
 [tgbot.buttons]
 "closeKeyboard" = "❌ Close Keyboard"
@@ -757,6 +701,7 @@
 "limitTraffic" = "🚧 Traffic Limit"
 "getBanLogs" = "Get Ban Logs"
 "allClients" = "All Clients"
+
 "addClient" = "Add Client"
 "submitDisable" = "Submit As Disable ☑️"
 "submitEnable" = "Submit As Enable ✅"

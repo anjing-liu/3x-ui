@@ -50,7 +50,6 @@
 "fail" = "Помилка"
 "comment" = "Коментар"
 "success" = "Успішно"
-"lastOnline" = "Був(ла) онлайн"
 "getVersion" = "Отримати версію"
 "install" = "Встановити"
 "clients" = "Клієнти"
@@ -72,20 +71,6 @@
 "emptyReverseDesc" = "Немає доданих зворотних проксі."
 "somethingWentWrong" = "Щось пішло не так"
 
-[subscription]
-"title" = "Інформація про підписку"
-"subId" = "ID підписки"
-"status" = "Статус"
-"downloaded" = "Завантажено"
-"uploaded" = "Відвантажено"
-"expiry" = "Термін дії"
-"totalQuota" = "Загальна квота"
-"individualLinks" = "Окремі посилання"
-"active" = "Активна"
-"inactive" = "Неактивна"
-"unlimited" = "Безліміт"
-"noExpiry" = "Без строку"
-
 [menu]
 "theme" = "Тема"
 "dark" = "Темна"
@@ -106,7 +91,7 @@
 "invalidFormData" = "Формат вхідних даних недійсний."
 "emptyUsername" = "Потрібне ім'я користувача"
 "emptyPassword" = "Потрібен пароль"
-"wrongUsernameOrPassword" = "Невірне ім’я користувача, пароль або код двофакторної аутентифікації."
+"wrongUsernameOrPassword" = "Невірне ім’я користувача, пароль або код двофакторної аутентифікації."  
 "successLogin" = "Ви успішно увійшли до свого облікового запису."
 
 [pages.index]
@@ -132,6 +117,8 @@
 "operationHours" = "Час роботи"
 "systemLoad" = "Завантаження системи"
 "systemLoadDesc" = "Середнє завантаження системи за останні 1, 5 і 15 хвилин"
+"connectionTcpCountDesc" = "Загальна кількість TCP-з'єднань у системі"
+"connectionUdpCountDesc" = "Загальна кількість UDP-з'єднань у системі"
 "connectionCount" = "Статистика з'єднання"
 "ipAddresses" = "IP-адреси"
 "toggleIpVisibility" = "Перемкнути видимість IP"
@@ -147,8 +134,6 @@
 "xraySwitchVersionPopover" = "Xray успішно оновлено"
 "geofileUpdateDialog" = "Ви дійсно хочете оновити геофайл?"
 "geofileUpdateDialogDesc" = "Це оновить файл #filename#."
-"geofilesUpdateDialogDesc" = "Це оновить усі геофайли."
-"geofilesUpdateAll" = "Оновити все"
 "geofileUpdatePopover" = "Геофайл успішно оновлено"
 "dontRefresh" = "Інсталяція триває, будь ласка, не оновлюйте цю сторінку"
 "logs" = "Журнали"
@@ -166,8 +151,6 @@
 "getConfigError" = "Виникла помилка під час отримання файлу конфігурації"
 
 [pages.inbounds]
-"allTimeTraffic" = "Загальний трафік"
-"allTimeTrafficUsage" = "Загальне використання за весь час"
 "title" = "Вхідні"
 "totalDownUp" = "Всього надісланих/отриманих"
 "totalUsage" = "Всього використанно"
@@ -177,13 +160,10 @@
 "remark" = "Примітка"
 "protocol" = "Протокол"
 "port" = "Порт"
-"portMap" = "Порт-перехід"
 "traffic" = "Трафік"
 "details" = "Деталі"
 "transportConfig" = "Транспорт"
 "expireDate" = "Тривалість"
-"createdAt" = "Створено"
-"updatedAt" = "Оновлено"
 "resetTraffic" = "Скинути трафік"
 "addInbound" = "Додати вхідний"
 "generalActions" = "Загальні дії"
@@ -195,6 +175,8 @@
 "deleteClient" = "Видалити клієнта"
 "deleteClientContent" = "Ви впевнені, що хочете видалити клієнт?"
 "resetTrafficContent" = "Ви впевнені, що хочете скинути трафік?"
+"inboundUpdateSuccess" = "Вхідне підключення успішно оновлено."
+"inboundCreateSuccess" = "Вхідне підключення успішно створено."
 "copyLink" = "Копіювати URL"
 "address" = "Адреса"
 "network" = "Мережа"
@@ -244,9 +226,6 @@
 "exportInbound" = "Експортувати вхідні"
 "import" = "Імпорт"
 "importInbound" = "Імпортувати вхідний"
-"periodicTrafficResetTitle" = "Скидання трафіку"
-"periodicTrafficResetDesc" = "Автоматично скидати лічильник трафіку через певні проміжки часу"
-"lastReset" = "Останнє скидання"
 
 [pages.client]
 "add" = "Додати клієнта"
@@ -266,12 +245,6 @@
 "renew" = "Автоматичне оновлення"
 "renewDesc" = "Автоматичне поновлення після закінчення терміну дії. (0 = вимкнено)(одиниця: день)"
 
-[pages.inbounds.periodicTrafficReset]
-"never" = "Ніколи"
-"daily" = "Щодня"
-"weekly" = "Щотижня"
-"monthly" = "Щомісяця"
-
 [pages.inbounds.toasts]
 "obtain" = "Отримати"
 "updateSuccess" = "Оновлення пройшло успішно"
@@ -289,8 +262,6 @@
 "resetInboundClientTrafficSuccess" = "Трафік скинуто"
 "trafficGetError" = "Помилка отримання даних про трафік"
 "getNewX25519CertError" = "Помилка при отриманні сертифіката X25519."
-"getNewmldsa65Error" = "Помилка при отриманні сертифіката mldsa65."
-"getNewVlessEncError" = "Помилка при отриманні сертифіката VlessEnc."
 
 [pages.inbounds.stream.general]
 "request" = "Запит"
@@ -371,19 +342,8 @@
 "subSettings" = "Підписка"
 "subEnable" = "Увімкнути службу підписки"
 "subEnableDesc" = "Вмикає службу підписки."
-"subJsonEnable" = "Увімкнути/вимкнути JSON-кінець підписки незалежно."
 "subTitle" = "Назва Підписки"
 "subTitleDesc" = "Назва, яка відображається у VPN-клієнті"
-"subSupportUrl" = "URL підтримки"
-"subSupportUrlDesc" = "Посилання на технічну підтримку, що відображається у VPN-клієнті"
-"subProfileUrl" = "URL профілю"
-"subProfileUrlDesc" = "Посилання на ваш вебсайт, що відображається у VPN-клієнті"
-"subAnnounce" = "Оголошення"
-"subAnnounceDesc" = "Текст оголошення, що відображається у VPN-клієнті"
-"subEnableRouting" = "Увімкнути маршрутизацію"
-"subEnableRoutingDesc" = "Глобальне налаштування для увімкнення маршрутизації у VPN-клієнті. (Тільки для Happ)"
-"subRoutingRules" = "Правила маршрутизації"
-"subRoutingRulesDesc" = "Глобальні правила маршрутизації для VPN-клієнта. (Тільки для Happ)"
 "subListen" = "Слухати IP"
 "subListenDesc" = "IP-адреса для служби підписки. (залиште порожнім, щоб слухати всі IP-адреси)"
 "subPort" = "Слухати порт"
@@ -460,8 +420,6 @@
 "FreedomStrategyDesc" = "Установити стратегію виведення для мережі в протоколі свободи."
 "RoutingStrategy" = "Загальна стратегія маршрутизації"
 "RoutingStrategyDesc" = "Установити загальну стратегію маршрутизації трафіку для вирішення всіх запитів."
-"outboundTestUrl" = "URL тесту outbound"
-"outboundTestUrlDesc" = "URL для перевірки з'єднання outbound"
 "Torrent" = "Блокувати протокол BitTorrent"
 "Inbounds" = "Вхідні"
 "InboundsDesc" = "Прийняття певних клієнтів."
@@ -525,12 +483,6 @@
 "accountInfo" = "Інформація про обліковий запис"
 "outboundStatus" = "Статус виходу"
 "sendThrough" = "Надіслати через"
-"test" = "Тест"
-"testResult" = "Результат тесту"
-"testing" = "Тестування з'єднання..."
-"testSuccess" = "Тест успішний"
-"testFailed" = "Тест не пройдено"
-"testError" = "Не вдалося протестувати вихідне з'єднання"
 
 [pages.xray.balancer]
 "addBalancer" = "Додати балансир"
@@ -549,12 +501,6 @@
 "psk" = "Спільний ключ"
 "domainStrategy" = "Стратегія домену"
 
-[pages.xray.tun]
-"nameDesc" = "Назва інтерфейсу TUN. Значення за замовчуванням - 'xray0'"
-"mtuDesc" = "Максимальна одиниця передачі. Максимальний розмір пакетів даних. Значення за замовчуванням - 1500"
-"userLevel" = "Рівень користувача"
-"userLevelDesc" = "Всі з'єднання, встановлені через цей вхід, використовуватимуть цей рівень користувача. Значення за замовчуванням - 0"
-
 [pages.xray.dns]
 "enable" = "Увімкнути DNS"
 "enableDesc" = "Увімкнути вбудований DNS-сервер"
@@ -568,8 +514,6 @@
 "disableFallbackDesc" = "Вимкнути резервні DNS-запити"
 "disableFallbackIfMatch" = "Вимкнути резервний DNS при збігу"
 "disableFallbackIfMatchDesc" = "Вимкнути резервні DNS-запити при збігу списку доменів DNS-сервера"
-"enableParallelQuery" = "Увімкнути паралельні запити"
-"enableParallelQueryDesc" = "Увімкнути паралельні DNS-запити до кількох серверів для швидшого вирішення"
 "strategy" = "Стратегія запиту"
 "strategyDesc" = "Загальна стратегія вирішення доменних імен"
 "add" = "Додати сервер"
@@ -591,9 +535,9 @@
 
 [pages.settings.security]
 "admin" = "Облікові дані адміністратора"
-"twoFactor" = "Двофакторна аутентифікація"
-"twoFactorEnable" = "Увімкнути 2FA"
-"twoFactorEnableDesc" = "Додає додатковий рівень аутентифікації для підвищення безпеки."
+"twoFactor" = "Двофакторна аутентифікація"  
+"twoFactorEnable" = "Увімкнути 2FA"  
+"twoFactorEnableDesc" = "Додає додатковий рівень аутентифікації для підвищення безпеки."  
 "twoFactorModalSetTitle" = "Увімкнути двофакторну аутентифікацію"
 "twoFactorModalDeleteTitle" = "Вимкнути двофакторну аутентифікацію"
 "twoFactorModalSteps" = "Щоб налаштувати двофакторну аутентифікацію, виконайте кілька кроків:"
@@ -617,20 +561,19 @@
 "resetOutboundTrafficError" = "Помилка скидання вихідного трафіку"
 
 [tgbot]
-"keyboardClosed" = "❌ Клавіатуру закрито!"
+"keyboardClosed" = "❌ Спеціальна клавіатура закрита!"
 "noResult" = "❗ Немає результату!"
-"noQuery" = "❌ Запит не знайдено! Будь ласка, використовуйте команду ще раз!"
+"noQuery" = "❌ Запит не знайдено! Скористайтеся командою ще раз!"
 "wentWrong" = "❌ Щось пішло не так!"
-"noIpRecord" = "❗ Немає запису IP!"
-"noInbounds" = "❗ Вхідні не знайдені!"
-"unlimited" = "♾ Необмежено (Скинути)"
+"noIpRecord" = "❗ Немає IP-запису!"
+"noInbounds" = "❗ Вхідних не знайдено!"
+"unlimited" = "♾ Необмежений (скинути)"
 "add" = "Додати"
 "month" = "Місяць"
 "months" = "Місяці"
 "day" = "День"
 "days" = "Дні"
-"hours" = "Години"
-"minutes" = "Хвилини"
+"hours" = "Годинник"
 "unknown" = "Невідомо"
 "inbounds" = "Вхідні"
 "clients" = "Клієнти"
@@ -663,7 +606,6 @@
 "userSaved" = "✅ Користувача Telegram збережено."
 "loginSuccess" = "✅ Успішно ввійшли в панель\r\n"
 "loginFailed" = "❗️ Помилка входу в панель.\r\n"
-"2faFailed" = "Помилка 2FA"
 "report" = "🕰 Заплановані звіти: {{ .RunTime }}\r\n"
 "datetime" = "⏰ Дата й час: {{ .DateTime }}\r\n"
 "hostname" = "💻 Хост: {{ .Hostname }}\r\n"
@@ -690,7 +632,6 @@
 "active" = "💡 Активний: {{ .Enable }}\r\n"
 "enabled" = "🚨 Увімкнено: {{ .Enable }}\r\n"
 "online" = "🌐 Стан підключення: {{ .Status }}\r\n"
-"lastOnline" = "🔙 Був(ла) онлайн: {{ .Time }}\r\n"
 "email" = "📧 Електронна пошта: {{ .Email }}\r\n"
 "upload" = "🔼 Upload: ↑{{ .Upload }}\r\n"
 "download" = "🔽 Download: ↓{{ .Download }}\r\n"
@@ -705,6 +646,7 @@
 "refreshedOn" = "\r\n📋🔄 Оновлено: {{ .Time }}\r\n\r\n"
 "yes" = "✅ Так"
 "no" = "❌ Ні"
+
 "received_id" = "🔑📥 ID оновлено."
 "received_password" = "🔑📥 Пароль оновлено."
 "received_email" = "📧📥 Електронна пошта оновлена."
@@ -716,13 +658,14 @@
 "inbound_client_data_id" = "🔄 Вхід: {{ .InboundRemark }}\n\n🔑 ID: {{ .ClientId }}\n📧 Електронна пошта: {{ .ClientEmail }}\n📊 Трафік: {{ .ClientTraffic }}\n📅 Дата завершення: {{ .ClientExp }}\n🌐 Обмеження IP: {{ .IpLimit }}\n💬 Коментар: {{ .ClientComment }}\n\nТепер ви можете додати клієнта до вхідного з'єднання!"
 "inbound_client_data_pass" = "🔄 Вхід: {{ .InboundRemark }}\n\n🔑 Пароль: {{ .ClientPass }}\n📧 Електронна пошта: {{ .ClientEmail }}\n📊 Трафік: {{ .ClientTraffic }}\n📅 Дата завершення: {{ .ClientExp }}\n🌐 Обмеження IP: {{ .IpLimit }}\n💬 Коментар: {{ .ClientComment }}\n\nТепер ви можете додати клієнта до вхідного з'єднання!"
 "cancel" = "❌ Процес скасовано! \n\nВи можете знову розпочати, використовуючи /start у будь-який час. 🔄"
-"error_add_client" = "⚠️ Помилка:\n\n {{ .error }}"
-"using_default_value" = "Гаразд, залишу значення за замовчуванням. 😊"
-"incorrect_input" = "Ваш ввід невірний.\nФрази повинні бути без пробілів.\nПравильний приклад: aaaaaa\nНеправильний приклад: aaa aaa 🚫"
+"error_add_client"  = "⚠️ Помилка:\n\n {{ .error }}"
+"using_default_value"  = "Гаразд, залишу значення за замовчуванням. 😊"
+"incorrect_input" ="Ваш ввід невірний.\nФрази повинні бути без пробілів.\nПравильний приклад: aaaaaa\nНеправильний приклад: aaa aaa 🚫"
 "AreYouSure" = "Ви впевнені? 🤔"
 "SuccessResetTraffic" = "📧 Електронна пошта: {{ .ClientEmail }}\n🏁 Результат: ✅ Успішно"
 "FailedResetTraffic" = "📧 Електронна пошта: {{ .ClientEmail }}\n🏁 Результат: ❌ Невдача \n\n🛠️ Помилка: [ {{ .ErrorMessage }} ]"
 "FinishProcess" = "🔚 Процес скидання трафіку завершено для всіх клієнтів."
+
 
 [tgbot.buttons]
 "closeKeyboard" = "❌ Закрити клавіатуру"
@@ -757,6 +700,7 @@
 "limitTraffic" = "🚧 Ліміт трафіку"
 "getBanLogs" = "Отримати журнали заборон"
 "allClients" = "Всі Клієнти"
+
 "addClient" = "Додати клієнта"
 "submitDisable" = "Надіслати як вимкнено ☑️"
 "submitEnable" = "Надіслати як увімкнено ✅"
@@ -767,6 +711,7 @@
 "change_comment" = "⚙️💬 Коментар"
 "ResetAllTraffics" = "Скинути весь трафік"
 "SortedTrafficUsageReport" = "Відсортований звіт про використання трафіку"
+
 
 [tgbot.answers]
 "successfulOperation" = "✅ Операція успішна!"

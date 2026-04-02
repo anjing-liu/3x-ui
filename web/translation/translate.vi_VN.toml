@@ -50,7 +50,6 @@
 "fail" = "Thất bại"
 "comment" = "Bình luận"
 "success" = "Thành công"
-"lastOnline" = "Lần online gần nhất"
 "getVersion" = "Lấy phiên bản"
 "install" = "Cài đặt"
 "clients" = "Các khách hàng"
@@ -72,20 +71,6 @@
 "emptyReverseDesc" = "Không có proxy ngược nào được thêm."
 "somethingWentWrong" = "Đã xảy ra lỗi"
 
-[subscription]
-"title" = "Thông tin đăng ký"
-"subId" = "ID đăng ký"
-"status" = "Trạng thái"
-"downloaded" = "Đã tải xuống"
-"uploaded" = "Đã tải lên"
-"expiry" = "Hết hạn"
-"totalQuota" = "Tổng hạn mức"
-"individualLinks" = "Liên kết riêng lẻ"
-"active" = "Hoạt động"
-"inactive" = "Không hoạt động"
-"unlimited" = "Không giới hạn"
-"noExpiry" = "Không hết hạn"
-
 [menu]
 "theme" = "Chủ đề"
 "dark" = "Tối"
@@ -106,7 +91,7 @@
 "invalidFormData" = "Dạng dữ liệu nhập không hợp lệ."
 "emptyUsername" = "Vui lòng nhập tên người dùng."
 "emptyPassword" = "Vui lòng nhập mật khẩu."
-"wrongUsernameOrPassword" = "Tên người dùng, mật khẩu hoặc mã xác thực hai yếu tố không hợp lệ."
+"wrongUsernameOrPassword" = "Tên người dùng, mật khẩu hoặc mã xác thực hai yếu tố không hợp lệ."  
 "successLogin" = "Bạn đã đăng nhập vào tài khoản thành công."
 
 [pages.index]
@@ -132,6 +117,8 @@
 "operationHours" = "Thời gian hoạt động"
 "systemLoad" = "Tải hệ thống"
 "systemLoadDesc" = "trung bình tải hệ thống trong 1, 5 và 15 phút qua"
+"connectionTcpCountDesc" = "Tổng số kết nối TCP trên tất cả các thẻ mạng."
+"connectionUdpCountDesc" = "Tổng số kết nối UDP trên tất cả các thẻ mạng."
 "connectionCount" = "Số lượng kết nối"
 "ipAddresses" = "Địa chỉ IP"
 "toggleIpVisibility" = "Chuyển đổi hiển thị IP"
@@ -147,8 +134,6 @@
 "xraySwitchVersionPopover" = "Xray đã được cập nhật thành công"
 "geofileUpdateDialog" = "Bạn có chắc chắn muốn cập nhật geofile không?"
 "geofileUpdateDialogDesc" = "Hành động này sẽ cập nhật tệp #filename#."
-"geofilesUpdateDialogDesc" = "Thao tác này sẽ cập nhật tất cả các tập tin."
-"geofilesUpdateAll" = "Cập nhật tất cả"
 "geofileUpdatePopover" = "Geofile đã được cập nhật thành công"
 "dontRefresh" = "Đang tiến hành cài đặt, vui lòng không làm mới trang này."
 "logs" = "Nhật ký"
@@ -166,8 +151,6 @@
 "getConfigError" = "Lỗi xảy ra khi truy xuất tệp cấu hình"
 
 [pages.inbounds]
-"allTimeTraffic" = "Tổng Lưu Lượng"
-"allTimeTrafficUsage" = "Tổng mức sử dụng mọi lúc"
 "title" = "Điểm vào (Inbounds)"
 "totalDownUp" = "Tổng tải lên/tải xuống"
 "totalUsage" = "Tổng sử dụng"
@@ -177,13 +160,10 @@
 "remark" = "Chú thích"
 "protocol" = "Giao thức"
 "port" = "Cổng"
-"portMap" = "Cổng tạo"
 "traffic" = "Lưu lượng"
 "details" = "Chi tiết"
 "transportConfig" = "Giao vận"
 "expireDate" = "Ngày hết hạn"
-"createdAt" = "Tạo lúc"
-"updatedAt" = "Cập nhật"
 "resetTraffic" = "Đặt lại lưu lượng"
 "addInbound" = "Thêm điểm vào"
 "generalActions" = "Hành động chung"
@@ -195,6 +175,8 @@
 "deleteClient" = "Xóa người dùng"
 "deleteClientContent" = "Bạn có chắc chắn muốn xóa người dùng không?"
 "resetTrafficContent" = "Xác nhận đặt lại lưu lượng?"
+"inboundUpdateSuccess" = "Đã cập nhật kết nối inbound thành công."
+"inboundCreateSuccess" = "Đã tạo kết nối inbound thành công."
 "copyLink" = "Sao chép liên kết"
 "address" = "Địa chỉ"
 "network" = "Mạng"
@@ -244,9 +226,6 @@
 "exportInbound" = "Xuất nhập khẩu"
 "import" = "Nhập"
 "importInbound" = "Nhập inbound"
-"periodicTrafficResetTitle" = "Đặt lại lưu lượng"
-"periodicTrafficResetDesc" = "Tự động đặt lại bộ đếm lưu lượng theo khoảng thời gian xác định"
-"lastReset" = "Đặt lại lần cuối"
 
 [pages.client]
 "add" = "Thêm người dùng"
@@ -266,12 +245,6 @@
 "renew" = "Tự động gia hạn"
 "renewDesc" = "Tự động gia hạn sau khi hết hạn. (0 = tắt)(đơn vị: ngày)"
 
-[pages.inbounds.periodicTrafficReset]
-"never" = "Không bao giờ"
-"daily" = "Hàng ngày"
-"weekly" = "Hàng tuần"
-"monthly" = "Hàng tháng"
-
 [pages.inbounds.toasts]
 "obtain" = "Nhận"
 "updateSuccess" = "Cập nhật thành công"
@@ -289,8 +262,6 @@
 "resetInboundClientTrafficSuccess" = "Đã đặt lại lưu lượng"
 "trafficGetError" = "Lỗi khi lấy thông tin lưu lượng"
 "getNewX25519CertError" = "Lỗi khi lấy chứng chỉ X25519."
-"getNewmldsa65Error" = "Lỗi khi lấy chứng chỉ mldsa65."
-"getNewVlessEncError" = "Lỗi khi lấy chứng chỉ VlessEnc."
 
 [pages.inbounds.stream.general]
 "request" = "Lời yêu cầu"
@@ -371,19 +342,8 @@
 "subSettings" = "Gói đăng ký"
 "subEnable" = "Bật dịch vụ"
 "subEnableDesc" = "Tính năng gói đăng ký với cấu hình riêng"
-"subJsonEnable" = "Bật/Tắt điểm cuối đăng ký JSON độc lập."
 "subTitle" = "Tiêu đề Đăng ký"
 "subTitleDesc" = "Tiêu đề hiển thị trong ứng dụng VPN"
-"subSupportUrl" = "URL Hỗ trợ"
-"subSupportUrlDesc" = "Liên kết hỗ trợ kỹ thuật hiển thị trong ứng dụng VPN"
-"subProfileUrl" = "URL Hồ sơ"
-"subProfileUrlDesc" = "Liên kết đến trang web của bạn hiển thị trong ứng dụng VPN"
-"subAnnounce" = "Thông báo"
-"subAnnounceDesc" = "Văn bản thông báo hiển thị trong ứng dụng VPN"
-"subEnableRouting" = "Bật định tuyến"
-"subEnableRoutingDesc" = "Cài đặt toàn cục để bật định tuyến trong ứng dụng khách VPN. (Chỉ dành cho Happ)"
-"subRoutingRules" = "Quy tắc định tuyến"
-"subRoutingRulesDesc" = "Quy tắc định tuyến toàn cầu cho client VPN. (Chỉ dành cho Happ)"
 "subListen" = "Listening IP"
 "subListenDesc" = "Mặc định để trống để nghe tất cả các IP"
 "subPort" = "Cổng gói đăng ký"
@@ -460,8 +420,6 @@
 "FreedomStrategyDesc" = "Đặt chiến lược đầu ra của mạng trong Giao thức Freedom."
 "RoutingStrategy" = "Cấu hình Chiến lược Định tuyến Tên miền"
 "RoutingStrategyDesc" = "Đặt chiến lược định tuyến tổng thể cho việc giải quyết DNS."
-"outboundTestUrl" = "URL kiểm tra outbound"
-"outboundTestUrlDesc" = "URL dùng khi kiểm tra kết nối outbound"
 "Torrent" = "Cấu hình sử dụng BitTorrent"
 "Inbounds" = "Đầu vào"
 "InboundsDesc" = "Thay đổi mẫu cấu hình để chấp nhận các máy khách cụ thể."
@@ -525,12 +483,6 @@
 "accountInfo" = "Thông tin tài khoản"
 "outboundStatus" = "Trạng thái đầu ra"
 "sendThrough" = "Gửi qua"
-"test" = "Kiểm tra"
-"testResult" = "Kết quả kiểm tra"
-"testing" = "Đang kiểm tra kết nối..."
-"testSuccess" = "Kiểm tra thành công"
-"testFailed" = "Kiểm tra thất bại"
-"testError" = "Không thể kiểm tra đầu ra"
 
 [pages.xray.balancer]
 "addBalancer" = "Thêm cân bằng"
@@ -549,12 +501,6 @@
 "psk" = "Khóa chia sẻ"
 "domainStrategy" = "Chiến lược tên miền"
 
-[pages.xray.tun]
-"nameDesc" = "Tên của giao diện TUN. Giá trị mặc định là 'xray0'"
-"mtuDesc" = "Đơn vị Truyền Tối đa. Kích thước tối đa của các gói dữ liệu. Giá trị mặc định là 1500"
-"userLevel" = "Mức Người Dùng"
-"userLevelDesc" = "Tất cả các kết nối được thực hiện thông qua inbound này sẽ sử dụng mức người dùng này. Giá trị mặc định là 0"
-
 [pages.xray.dns]
 "enable" = "Kích hoạt DNS"
 "enableDesc" = "Kích hoạt máy chủ DNS tích hợp"
@@ -568,8 +514,6 @@
 "disableFallbackDesc" = "Tắt các truy vấn DNS Fallback"
 "disableFallbackIfMatch" = "Tắt Fallback Nếu Khớp"
 "disableFallbackIfMatchDesc" = "Tắt các truy vấn DNS Fallback khi danh sách tên miền khớp của máy chủ DNS được kích hoạt"
-"enableParallelQuery" = "Bật Truy vấn Song song"
-"enableParallelQueryDesc" = "Bật truy vấn DNS song song đến nhiều máy chủ để phân giải nhanh hơn"
 "strategy" = "Chiến lược truy vấn"
 "strategyDesc" = "Chiến lược tổng thể để phân giải tên miền"
 "add" = "Thêm máy chủ"
@@ -591,9 +535,9 @@
 
 [pages.settings.security]
 "admin" = "Thông tin đăng nhập quản trị viên"
-"twoFactor" = "Xác thực hai yếu tố"
-"twoFactorEnable" = "Bật 2FA"
-"twoFactorEnableDesc" = "Thêm một lớp bảo mật bổ sung để tăng cường an toàn."
+"twoFactor" = "Xác thực hai yếu tố"  
+"twoFactorEnable" = "Bật 2FA"  
+"twoFactorEnableDesc" = "Thêm một lớp bảo mật bổ sung để tăng cường an toàn."  
 "twoFactorModalSetTitle" = "Bật xác thực hai yếu tố"
 "twoFactorModalDeleteTitle" = "Tắt xác thực hai yếu tố"
 "twoFactorModalSteps" = "Để thiết lập xác thực hai yếu tố, hãy thực hiện các bước sau:"
@@ -617,23 +561,22 @@
 "resetOutboundTrafficError" = "Lỗi khi đặt lại lưu lượng truy cập đi"
 
 [tgbot]
-"keyboardClosed" = "❌ Bàn phím đã đóng!"
+"keyboardClosed" = "❌ Bàn phím tùy chỉnh đã đóng!"
 "noResult" = "❗ Không có kết quả!"
-"noQuery" = "❌ Không tìm thấy truy vấn! Vui lòng sử dụng lại lệnh!"
+"noQuery" = "❌ Không tìm thấy truy vấn! Vui lòng sử dụng lệnh lại!"
 "wentWrong" = "❌ Đã xảy ra lỗi!"
 "noIpRecord" = "❗ Không có bản ghi IP!"
 "noInbounds" = "❗ Không tìm thấy inbound!"
-"unlimited" = "♾ Không giới hạn (Đặt lại)"
+"unlimited" = "♾ Không giới hạn"
 "add" = "Thêm"
 "month" = "Tháng"
 "months" = "Tháng"
 "day" = "Ngày"
 "days" = "Ngày"
 "hours" = "Giờ"
-"minutes" = "Phút"
-"unknown" = "Không xác định"
-"inbounds" = "Inbound"
-"clients" = "Client"
+"unknown" = "Không rõ"
+"inbounds" = "Vào"
+"clients" = "Các người dùng"
 "offline" = "🔴 Ngoại tuyến"
 "online" = "🟢 Trực tuyến"
 
@@ -663,7 +606,6 @@
 "userSaved" = "✅ Người dùng Telegram đã được lưu."
 "loginSuccess" = "✅ Đăng nhập thành công vào bảng điều khiển.\r\n"
 "loginFailed" = "❗️ Đăng nhập vào bảng điều khiển thất bại.\r\n"
-"2faFailed" = "Lỗi 2FA"
 "report" = "🕰 Báo cáo định kỳ: {{ .RunTime }}\r\n"
 "datetime" = "⏰ Ngày-Giờ: {{ .DateTime }}\r\n"
 "hostname" = "💻 Tên máy chủ: {{ .Hostname }}\r\n"
@@ -690,7 +632,6 @@
 "active" = "💡 Đang hoạt động: {{ .Enable }}\r\n"
 "enabled" = "🚨 Đã bật: {{ .Enable }}\r\n"
 "online" = "🌐 Trạng thái kết nối: {{ .Status }}\r\n"
-"lastOnline" = "🔙 Lần online gần nhất: {{ .Time }}\r\n"
 "email" = "📧 Email: {{ .Email }}\r\n"
 "upload" = "🔼 Tải lên: ↑{{ .Upload }}\r\n"
 "download" = "🔽 Tải xuống: ↓{{ .Download }}\r\n"
@@ -705,6 +646,7 @@
 "refreshedOn" = "\r\n📋🔄 Đã cập nhật lần cuối vào: {{ .Time }}\r\n\r\n"
 "yes" = "✅ Có"
 "no" = "❌ Không"
+
 "received_id" = "🔑📥 ID đã được cập nhật."
 "received_password" = "🔑📥 Mật khẩu đã được cập nhật."
 "received_email" = "📧📥 Email đã được cập nhật."
@@ -716,13 +658,14 @@
 "inbound_client_data_id" = "🔄 Kết nối vào: {{ .InboundRemark }}\n\n🔑 ID: {{ .ClientId }}\n📧 Email: {{ .ClientEmail }}\n📊 Dung lượng: {{ .ClientTraffic }}\n📅 Ngày hết hạn: {{ .ClientExp }}\n🌐 Giới hạn IP: {{ .IpLimit }}\n💬 Ghi chú: {{ .ClientComment }}\n\nBây giờ bạn có thể thêm khách hàng vào inbound!"
 "inbound_client_data_pass" = "🔄 Kết nối vào: {{ .InboundRemark }}\n\n🔑 Mật khẩu: {{ .ClientPass }}\n📧 Email: {{ .ClientEmail }}\n📊 Dung lượng: {{ .ClientTraffic }}\n📅 Ngày hết hạn: {{ .ClientExp }}\n🌐 Giới hạn IP: {{ .IpLimit }}\n💬 Ghi chú: {{ .ClientComment }}\n\nBây giờ bạn có thể thêm khách hàng vào inbound!"
 "cancel" = "❌ Quá trình đã bị hủy! \n\nBạn có thể bắt đầu lại bất cứ lúc nào bằng cách nhập /start. 🔄"
-"error_add_client" = "⚠️ Lỗi:\n\n {{ .error }}"
-"using_default_value" = "Được rồi, tôi sẽ sử dụng giá trị mặc định. 😊"
-"incorrect_input" = "Dữ liệu bạn nhập không hợp lệ.\nCác chuỗi phải liền mạch và không có dấu cách.\nVí dụ đúng: aaaaaa\nVí dụ sai: aaa aaa 🚫"
+"error_add_client"  = "⚠️ Lỗi:\n\n {{ .error }}"
+"using_default_value"  = "Được rồi, tôi sẽ sử dụng giá trị mặc định. 😊"
+"incorrect_input" ="Dữ liệu bạn nhập không hợp lệ.\nCác chuỗi phải liền mạch và không có dấu cách.\nVí dụ đúng: aaaaaa\nVí dụ sai: aaa aaa 🚫"
 "AreYouSure" = "Bạn có chắc không? 🤔"
 "SuccessResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Kết quả: ✅ Thành công"
 "FailedResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Kết quả: ❌ Thất bại \n\n🛠️ Lỗi: [ {{ .ErrorMessage }} ]"
 "FinishProcess" = "🔚 Quá trình đặt lại lưu lượng đã hoàn tất cho tất cả khách hàng."
+
 
 [tgbot.buttons]
 "closeKeyboard" = "❌ Đóng Bàn Phím"
@@ -757,6 +700,7 @@
 "limitTraffic" = "🚧 Giới hạn lưu lượng"
 "getBanLogs" = "Cấm nhật ký"
 "allClients" = "Tất cả Khách hàng"
+
 "addClient" = "Thêm Khách Hàng"
 "submitDisable" = "Gửi Dưới Dạng Vô Hiệu ☑️"
 "submitEnable" = "Gửi Dưới Dạng Kích Hoạt ✅"
@@ -767,6 +711,7 @@
 "change_comment" = "⚙️💬 Bình Luận"
 "ResetAllTraffics" = "Đặt lại tất cả lưu lượng"
 "SortedTrafficUsageReport" = "Báo cáo sử dụng lưu lượng đã sắp xếp"
+
 
 [tgbot.answers]
 "successfulOperation" = "✅ Thành công!"

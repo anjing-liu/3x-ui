@@ -50,7 +50,6 @@
 "fail" = "Falhou"
 "comment" = "Comentário"
 "success" = "Com Sucesso"
-"lastOnline" = "Última vez online"
 "getVersion" = "Obter Versão"
 "install" = "Instalar"
 "clients" = "Clientes"
@@ -72,20 +71,6 @@
 "emptyReverseDesc" = "Nenhum proxy reverso adicionado."
 "somethingWentWrong" = "Algo deu errado"
 
-[subscription]
-"title" = "Informações da assinatura"
-"subId" = "ID da assinatura"
-"status" = "Status"
-"downloaded" = "Baixado"
-"uploaded" = "Enviado"
-"expiry" = "Validade"
-"totalQuota" = "Cota total"
-"individualLinks" = "Links individuais"
-"active" = "Ativo"
-"inactive" = "Inativo"
-"unlimited" = "Ilimitado"
-"noExpiry" = "Sem validade"
-
 [menu]
 "theme" = "Tema"
 "dark" = "Escuro"
@@ -106,12 +91,12 @@
 "invalidFormData" = "O formato dos dados de entrada é inválido."
 "emptyUsername" = "Nome de usuário é obrigatório"
 "emptyPassword" = "Senha é obrigatória"
-"wrongUsernameOrPassword" = "Nome de usuário, senha ou código de dois fatores inválido."
+"wrongUsernameOrPassword" = "Nome de usuário, senha ou código de dois fatores inválido."  
 "successLogin" = "Você entrou na sua conta com sucesso."
 
 [pages.index]
 "title" = "Visão Geral"
-"cpu" = "CPU"
+"cpu" = "CPU" 
 "logicalProcessors" = "Processadores lógicos"
 "frequency" = "Frequência"
 "swap" = "Swap"
@@ -132,6 +117,8 @@
 "operationHours" = "Tempo de Atividade"
 "systemLoad" = "Carga do Sistema"
 "systemLoadDesc" = "Média de carga do sistema nos últimos 1, 5 e 15 minutos"
+"connectionTcpCountDesc" = "Total de conexões TCP no sistema"
+"connectionUdpCountDesc" = "Total de conexões UDP no sistema"
 "connectionCount" = "Estatísticas de Conexão"
 "ipAddresses" = "Endereços IP"
 "toggleIpVisibility" = "Alternar visibilidade do IP"
@@ -147,8 +134,6 @@
 "xraySwitchVersionPopover" = "Xray atualizado com sucesso"
 "geofileUpdateDialog" = "Você realmente deseja atualizar o geofile?"
 "geofileUpdateDialogDesc" = "Isso atualizará o arquivo #filename#."
-"geofilesUpdateDialogDesc" = "Isso atualizará todos os arquivos."
-"geofilesUpdateAll" = "Atualizar tudo"
 "geofileUpdatePopover" = "Geofile atualizado com sucesso"
 "dontRefresh" = "Instalação em andamento, por favor não atualize a página"
 "logs" = "Logs"
@@ -166,8 +151,6 @@
 "getConfigError" = "Ocorreu um erro ao recuperar o arquivo de configuração"
 
 [pages.inbounds]
-"allTimeTraffic" = "Tráfego Total"
-"allTimeTrafficUsage" = "Uso total de todos os tempos"
 "title" = "Inbounds"
 "totalDownUp" = "Total Enviado/Recebido"
 "totalUsage" = "Uso Total"
@@ -177,13 +160,10 @@
 "remark" = "Observação"
 "protocol" = "Protocolo"
 "port" = "Porta"
-"portMap" = "Porta Mapeada"
 "traffic" = "Tráfego"
 "details" = "Detalhes"
 "transportConfig" = "Transporte"
 "expireDate" = "Duração"
-"createdAt" = "Criado"
-"updatedAt" = "Atualizado"
 "resetTraffic" = "Redefinir Tráfego"
 "addInbound" = "Adicionar Inbound"
 "generalActions" = "Ações Gerais"
@@ -195,6 +175,8 @@
 "deleteClient" = "Excluir Cliente"
 "deleteClientContent" = "Tem certeza de que deseja excluir o cliente?"
 "resetTrafficContent" = "Tem certeza de que deseja redefinir o tráfego?"
+"inboundUpdateSuccess" = "A entrada foi atualizada com sucesso."
+"inboundCreateSuccess" = "A entrada foi criada com sucesso."
 "copyLink" = "Copiar URL"
 "address" = "Endereço"
 "network" = "Rede"
@@ -244,9 +226,6 @@
 "exportInbound" = "Exportar Inbound"
 "import" = "Importar"
 "importInbound" = "Importar um Inbound"
-"periodicTrafficResetTitle" = "Reset de Tráfego"
-"periodicTrafficResetDesc" = "Reinicia automaticamente o contador de tráfego em intervalos especificados"
-"lastReset" = "Último Reset"
 
 [pages.client]
 "add" = "Adicionar Cliente"
@@ -266,12 +245,6 @@
 "renew" = "Renovação Automática"
 "renewDesc" = "Renovação automática após expiração. (0 = desativado)(unidade: dia)"
 
-[pages.inbounds.periodicTrafficReset]
-"never" = "Nunca"
-"daily" = "Diariamente"
-"weekly" = "Semanalmente"
-"monthly" = "Mensalmente"
-
 [pages.inbounds.toasts]
 "obtain" = "Obter"
 "updateSuccess" = "A atualização foi bem-sucedida"
@@ -289,8 +262,6 @@
 "resetInboundClientTrafficSuccess" = "O tráfego foi reiniciado"
 "trafficGetError" = "Erro ao obter tráfegos"
 "getNewX25519CertError" = "Erro ao obter o certificado X25519."
-"getNewmldsa65Error" = "Erro ao obter o certificado mldsa65."
-"getNewVlessEncError" = "Erro ao obter o certificado VlessEnc."
 
 [pages.inbounds.stream.general]
 "request" = "Requisição"
@@ -371,19 +342,8 @@
 "subSettings" = "Assinatura"
 "subEnable" = "Ativar Serviço de Assinatura"
 "subEnableDesc" = "Ativa o serviço de assinatura."
-"subJsonEnable" = "Ativar/Desativar o endpoint de assinatura JSON de forma independente."
 "subTitle" = "Título da Assinatura"
 "subTitleDesc" = "Título exibido no cliente VPN"
-"subSupportUrl" = "URL de Suporte"
-"subSupportUrlDesc" = "Link de suporte técnico exibido no cliente VPN"
-"subProfileUrl" = "URL de Perfil"
-"subProfileUrlDesc" = "Um link para o seu site exibido no cliente VPN"
-"subAnnounce" = "Anúncio"
-"subAnnounceDesc" = "O texto do anúncio exibido no cliente VPN"
-"subEnableRouting" = "Ativar roteamento"
-"subEnableRoutingDesc" = "Configuração global para habilitar o roteamento no cliente VPN. (Apenas para Happ)"
-"subRoutingRules" = "Regras de roteamento"
-"subRoutingRulesDesc" = "Regras de roteamento globais para o cliente VPN. (Apenas para Happ)"
 "subListen" = "IP de Escuta"
 "subListenDesc" = "O endereço IP para o serviço de assinatura. (deixe em branco para escutar em todos os IPs)"
 "subPort" = "Porta de Escuta"
@@ -460,8 +420,6 @@
 "FreedomStrategyDesc" = "Definir a estratégia de saída para a rede no Protocolo Freedom."
 "RoutingStrategy" = "Estratégia Geral de Roteamento"
 "RoutingStrategyDesc" = "Definir a estratégia geral de roteamento de tráfego para resolver todas as solicitações."
-"outboundTestUrl" = "URL de teste de outbound"
-"outboundTestUrlDesc" = "URL usada ao testar conectividade do outbound"
 "Torrent" = "Bloquear Protocolo BitTorrent"
 "Inbounds" = "Inbounds"
 "InboundsDesc" = "Aceitar clientes específicos."
@@ -525,12 +483,6 @@
 "accountInfo" = "Informações da Conta"
 "outboundStatus" = "Status de Saída"
 "sendThrough" = "Enviar Através de"
-"test" = "Testar"
-"testResult" = "Resultado do teste"
-"testing" = "Testando conexão..."
-"testSuccess" = "Teste bem-sucedido"
-"testFailed" = "Teste falhou"
-"testError" = "Falha ao testar saída"
 
 [pages.xray.balancer]
 "addBalancer" = "Adicionar Balanceador"
@@ -549,12 +501,6 @@
 "psk" = "Chave Pré-Compartilhada"
 "domainStrategy" = "Estratégia de Domínio"
 
-[pages.xray.tun]
-"nameDesc" = "O nome da interface TUN. O padrão é 'xray0'"
-"mtuDesc" = "Unidade Máxima de Transmissão. O tamanho máximo dos pacotes de dados. O padrão é 1500"
-"userLevel" = "Nível do Usuário"
-"userLevelDesc" = "Todas as conexões feitas através deste inbound usarão este nível de usuário. O padrão é 0"
-
 [pages.xray.dns]
 "enable" = "Ativar DNS"
 "enableDesc" = "Ativar o servidor DNS integrado"
@@ -568,8 +514,6 @@
 "disableFallbackDesc" = "Desativa consultas DNS de fallback"
 "disableFallbackIfMatch" = "Desativar Fallback Se Corresponder"
 "disableFallbackIfMatchDesc" = "Desativa consultas DNS de fallback quando a lista de domínios correspondentes do servidor DNS é atingida"
-"enableParallelQuery" = "Habilitar Consulta Paralela"
-"enableParallelQueryDesc" = "Habilitar consultas DNS paralelas para múltiplos servidores para resolução mais rápida"
 "strategy" = "Estratégia de Consulta"
 "strategyDesc" = "Estratégia geral para resolver nomes de domínio"
 "add" = "Adicionar Servidor"
@@ -591,9 +535,9 @@
 
 [pages.settings.security]
 "admin" = "Credenciais de administrador"
-"twoFactor" = "Autenticação de dois fatores"
-"twoFactorEnable" = "Ativar 2FA"
-"twoFactorEnableDesc" = "Adiciona uma camada extra de autenticação para mais segurança."
+"twoFactor" = "Autenticação de dois fatores"  
+"twoFactorEnable" = "Ativar 2FA"  
+"twoFactorEnableDesc" = "Adiciona uma camada extra de autenticação para mais segurança."  
 "twoFactorModalSetTitle" = "Ativar autenticação de dois fatores"
 "twoFactorModalDeleteTitle" = "Desativar autenticação de dois fatores"
 "twoFactorModalSteps" = "Para configurar a autenticação de dois fatores, siga alguns passos:"
@@ -617,22 +561,21 @@
 "resetOutboundTrafficError" = "Erro ao redefinir tráfego de saída"
 
 [tgbot]
-"keyboardClosed" = "❌ Teclado fechado!"
+"keyboardClosed" = "❌ Teclado personalizado fechado!"
 "noResult" = "❗ Nenhum resultado!"
 "noQuery" = "❌ Consulta não encontrada! Por favor, use o comando novamente!"
 "wentWrong" = "❌ Algo deu errado!"
 "noIpRecord" = "❗ Nenhum registro de IP!"
-"noInbounds" = "❗ Nenhum inbound encontrado!"
-"unlimited" = "♾ Ilimitado (Reset)"
+"noInbounds" = "❗ Nenhuma entrada encontrada!"
+"unlimited" = "♾ Ilimitado (Reiniciar)"
 "add" = "Adicionar"
 "month" = "Mês"
 "months" = "Meses"
 "day" = "Dia"
 "days" = "Dias"
 "hours" = "Horas"
-"minutes" = "Minutos"
 "unknown" = "Desconhecido"
-"inbounds" = "Inbounds"
+"inbounds" = "Entradas"
 "clients" = "Clientes"
 "offline" = "🔴 Offline"
 "online" = "🟢 Online"
@@ -663,7 +606,6 @@
 "userSaved" = "✅ Usuário do Telegram salvo."
 "loginSuccess" = "✅ Conectado ao painel com sucesso.\r\n"
 "loginFailed" = "❗️Tentativa de login no painel falhou.\r\n"
-"2faFailed" = "Falha no 2FA"
 "report" = "🕰 Relatórios agendados: {{ .RunTime }}\r\n"
 "datetime" = "⏰ Data&Hora: {{ .DateTime }}\r\n"
 "hostname" = "💻 Host: {{ .Hostname }}\r\n"
@@ -690,7 +632,6 @@
 "active" = "💡 Ativo: {{ .Enable }}\r\n"
 "enabled" = "🚨 Ativado: {{ .Enable }}\r\n"
 "online" = "🌐 Status da conexão: {{ .Status }}\r\n"
-"lastOnline" = "🔙 Última vez online: {{ .Time }}\r\n"
 "email" = "📧 Email: {{ .Email }}\r\n"
 "upload" = "🔼 Upload: ↑{{ .Upload }}\r\n"
 "download" = "🔽 Download: ↓{{ .Download }}\r\n"
@@ -705,6 +646,7 @@
 "refreshedOn" = "\r\n📋🔄 Atualizado em: {{ .Time }}\r\n\r\n"
 "yes" = "✅ Sim"
 "no" = "❌ Não"
+
 "received_id" = "🔑📥 ID atualizado."
 "received_password" = "🔑📥 Senha atualizada."
 "received_email" = "📧📥 E-mail atualizado."
@@ -716,13 +658,14 @@
 "inbound_client_data_id" = "🔄 Entrada: {{ .InboundRemark }}\n\n🔑 ID: {{ .ClientId }}\n📧 Email: {{ .ClientEmail }}\n📊 Tráfego: {{ .ClientTraffic }}\n📅 Data de expiração: {{ .ClientExp }}\n🌐 Limite de IP: {{ .IpLimit }}\n💬 Comentário: {{ .ClientComment }}\n\nAgora você pode adicionar o cliente à entrada!"
 "inbound_client_data_pass" = "🔄 Entrada: {{ .InboundRemark }}\n\n🔑 Senha: {{ .ClientPass }}\n📧 Email: {{ .ClientEmail }}\n📊 Tráfego: {{ .ClientTraffic }}\n📅 Data de expiração: {{ .ClientExp }}\n🌐 Limite de IP: {{ .IpLimit }}\n💬 Comentário: {{ .ClientComment }}\n\nAgora você pode adicionar o cliente à entrada!"
 "cancel" = "❌ Processo Cancelado! \n\nVocê pode iniciar novamente a qualquer momento com /start. 🔄"
-"error_add_client" = "⚠️ Erro:\n\n {{ .error }}"
-"using_default_value" = "Tudo bem, vou manter o valor padrão. 😊"
-"incorrect_input" = "Sua entrada não é válida.\nAs frases devem ser contínuas, sem espaços.\nExemplo correto: aaaaaa\nExemplo incorreto: aaa aaa 🚫"
+"error_add_client"  = "⚠️ Erro:\n\n {{ .error }}"
+"using_default_value"  = "Tudo bem, vou manter o valor padrão. 😊"
+"incorrect_input" ="Sua entrada não é válida.\nAs frases devem ser contínuas, sem espaços.\nExemplo correto: aaaaaa\nExemplo incorreto: aaa aaa 🚫"
 "AreYouSure" = "Você tem certeza? 🤔"
 "SuccessResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Resultado: ✅ Sucesso"
 "FailedResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Resultado: ❌ Falhou \n\n🛠️ Erro: [ {{ .ErrorMessage }} ]"
 "FinishProcess" = "🔚 Processo de redefinição de tráfego concluído para todos os clientes."
+
 
 [tgbot.buttons]
 "closeKeyboard" = "❌ Fechar teclado"
@@ -757,6 +700,7 @@
 "limitTraffic" = "🚧 Limite de tráfego"
 "getBanLogs" = "Obter logs de banimento"
 "allClients" = "Todos os clientes"
+
 "addClient" = "Adicionar Cliente"
 "submitDisable" = "Enviar como Desativado ☑️"
 "submitEnable" = "Enviar como Ativado ✅"
@@ -767,6 +711,7 @@
 "change_comment" = "⚙️💬 Comentário"
 "ResetAllTraffics" = "Redefinir Todo o Tráfego"
 "SortedTrafficUsageReport" = "Relatório de Uso de Tráfego Ordenado"
+
 
 [tgbot.answers]
 "successfulOperation" = "✅ Operação bem-sucedida!"

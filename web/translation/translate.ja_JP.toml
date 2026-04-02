@@ -50,7 +50,6 @@
 "fail" = "失敗"
 "comment" = "コメント"
 "success" = "成功"
-"lastOnline" = "最終オンライン"
 "getVersion" = "バージョン取得"
 "install" = "インストール"
 "clients" = "クライアント"
@@ -72,20 +71,6 @@
 "emptyReverseDesc" = "追加されたリバースプロキシはありません。"
 "somethingWentWrong" = "エラーが発生しました"
 
-[subscription]
-"title" = "サブスクリプション情報"
-"subId" = "サブスクリプションID"
-"status" = "ステータス"
-"downloaded" = "ダウンロード"
-"uploaded" = "アップロード"
-"expiry" = "有効期限"
-"totalQuota" = "合計クォータ"
-"individualLinks" = "個別リンク"
-"active" = "有効"
-"inactive" = "無効"
-"unlimited" = "無制限"
-"noExpiry" = "期限なし"
-
 [menu]
 "theme" = "テーマ"
 "dark" = "ダーク"
@@ -106,7 +91,7 @@
 "invalidFormData" = "データ形式エラー"
 "emptyUsername" = "ユーザー名を入力してください"
 "emptyPassword" = "パスワードを入力してください"
-"wrongUsernameOrPassword" = "ユーザー名、パスワード、または二段階認証コードが無効です。"
+"wrongUsernameOrPassword" = "ユーザー名、パスワード、または二段階認証コードが無効です。"  
 "successLogin" = "アカウントに正常にログインしました。"
 
 [pages.index]
@@ -132,6 +117,8 @@
 "operationHours" = "システム稼働時間"
 "systemLoad" = "システム負荷"
 "systemLoadDesc" = "過去1、5、15分間のシステム平均負荷"
+"connectionTcpCountDesc" = "システム内のすべてのTCP接続数"
+"connectionUdpCountDesc" = "システム内のすべてのUDP接続数"
 "connectionCount" = "接続数"
 "ipAddresses" = "IPアドレス"
 "toggleIpVisibility" = "IPの表示を切り替える"
@@ -147,8 +134,6 @@
 "xraySwitchVersionPopover" = "Xrayの更新が成功しました"
 "geofileUpdateDialog" = "ジオファイルを本当に更新しますか？"
 "geofileUpdateDialogDesc" = "これにより#filename#ファイルが更新されます。"
-"geofilesUpdateDialogDesc" = "これにより、すべてのファイルが更新されます。"
-"geofilesUpdateAll" = "すべて更新"
 "geofileUpdatePopover" = "ジオファイルの更新が成功しました"
 "dontRefresh" = "インストール中、このページをリロードしないでください"
 "logs" = "ログ"
@@ -166,8 +151,6 @@
 "getConfigError" = "設定ファイルの取得中にエラーが発生しました"
 
 [pages.inbounds]
-"allTimeTraffic" = "総トラフィック"
-"allTimeTrafficUsage" = "これまでの総使用量"
 "title" = "インバウンド一覧"
 "totalDownUp" = "総アップロード / ダウンロード"
 "totalUsage" = "総使用量"
@@ -177,13 +160,10 @@
 "remark" = "備考"
 "protocol" = "プロトコル"
 "port" = "ポート"
-"portMap" = "ポートマッピング"
 "traffic" = "トラフィック"
 "details" = "詳細情報"
 "transportConfig" = "トランスポート設定"
 "expireDate" = "有効期限"
-"createdAt" = "作成"
-"updatedAt" = "更新"
 "resetTraffic" = "トラフィックリセット"
 "addInbound" = "インバウンド追加"
 "generalActions" = "一般操作"
@@ -195,6 +175,8 @@
 "deleteClient" = "クライアント削除"
 "deleteClientContent" = "クライアントを削除してもよろしいですか？"
 "resetTrafficContent" = "トラフィックをリセットしてもよろしいですか？"
+"inboundUpdateSuccess" = "インバウンドが正常に更新されました。"
+"inboundCreateSuccess" = "インバウンドが正常に作成されました。"
 "copyLink" = "リンクをコピー"
 "address" = "アドレス"
 "network" = "ネットワーク"
@@ -244,9 +226,6 @@
 "exportInbound" = "インバウンドルールをエクスポート"
 "import" = "インポート"
 "importInbound" = "インバウンドルールをインポート"
-"periodicTrafficResetTitle" = "トラフィックリセット"
-"periodicTrafficResetDesc" = "指定された間隔でトラフィックカウンタを自動的にリセット"
-"lastReset" = "最後のリセット"
 
 [pages.client]
 "add" = "クライアント追加"
@@ -266,12 +245,6 @@
 "renew" = "自動更新"
 "renewDesc" = "期限が切れた後に自動更新。（0 = 無効）（単位：日）"
 
-[pages.inbounds.periodicTrafficReset]
-"never" = "なし"
-"daily" = "毎日"
-"weekly" = "毎週"
-"monthly" = "毎月"
-
 [pages.inbounds.toasts]
 "obtain" = "取得"
 "updateSuccess" = "更新が成功しました"
@@ -289,8 +262,6 @@
 "resetInboundClientTrafficSuccess" = "トラフィックがリセットされました"
 "trafficGetError" = "トラフィックの取得中にエラーが発生しました"
 "getNewX25519CertError" = "X25519証明書の取得中にエラーが発生しました。"
-"getNewmldsa65Error" = "mldsa65証明書の取得中にエラーが発生しました。"
-"getNewVlessEncError" = "VlessEnc証明書の取得中にエラーが発生しました。"
 
 [pages.inbounds.stream.general]
 "request" = "リクエスト"
@@ -371,19 +342,8 @@
 "subSettings" = "サブスクリプション設定"
 "subEnable" = "サブスクリプションサービスを有効にする"
 "subEnableDesc" = "サブスクリプションサービス機能を有効にする"
-"subJsonEnable" = "JSON サブスクリプションのエンドポイントを個別に有効/無効にする。"
 "subTitle" = "サブスクリプションタイトル"
 "subTitleDesc" = "VPNクライアントに表示されるタイトル"
-"subSupportUrl" = "サポートURL"
-"subSupportUrlDesc" = "VPNクライアントに表示されるテクニカルサポートへのリンク"
-"subProfileUrl" = "プロフィールURL"
-"subProfileUrlDesc" = "VPNクライアントに表示されるWebサイトへのリンク"
-"subAnnounce" = "お知らせ"
-"subAnnounceDesc" = "VPNクライアントに表示されるお知らせのテキスト"
-"subEnableRouting" = "ルーティングを有効化"
-"subEnableRoutingDesc" = "VPNクライアントでルーティングを有効にするためのグローバル設定。(Happのみ)"
-"subRoutingRules" = "ルーティングルール"
-"subRoutingRulesDesc" = "VPNクライアントのグローバルルーティングルール。(Happのみ)"
 "subListen" = "監視IP"
 "subListenDesc" = "サブスクリプションサービスが監視するIPアドレス（空白にするとすべてのIPを監視）"
 "subPort" = "監視ポート"
@@ -460,8 +420,6 @@
 "FreedomStrategyDesc" = "Freedomプロトコル内のネットワークの出力戦略を設定する"
 "RoutingStrategy" = "ルーティングドメイン戦略設定"
 "RoutingStrategyDesc" = "DNS解決の全体的なルーティング戦略を設定する"
-"outboundTestUrl" = "アウトバウンドテスト URL"
-"outboundTestUrlDesc" = "アウトバウンド接続テストに使用する URL。既定値"
 "Torrent" = "BitTorrent プロトコルをブロック"
 "Inbounds" = "インバウンドルール"
 "InboundsDesc" = "特定のクライアントからのトラフィックを受け入れる"
@@ -525,12 +483,6 @@
 "accountInfo" = "アカウント情報"
 "outboundStatus" = "アウトバウンドステータス"
 "sendThrough" = "送信経路"
-"test" = "テスト"
-"testResult" = "テスト結果"
-"testing" = "接続をテスト中..."
-"testSuccess" = "テスト成功"
-"testFailed" = "テスト失敗"
-"testError" = "アウトバウンドのテストに失敗しました"
 
 [pages.xray.balancer]
 "addBalancer" = "負荷分散追加"
@@ -549,12 +501,6 @@
 "psk" = "共有キー"
 "domainStrategy" = "ドメイン戦略"
 
-[pages.xray.tun]
-"nameDesc" = "TUN インターフェースの名前。デフォルトは 'xray0' です"
-"mtuDesc" = "最大伝送単位。データパケットの最大サイズ。デフォルトは 1500 です"
-"userLevel" = "ユーザーレベル"
-"userLevelDesc" = "このインバウンドを通じて確立されたすべての接続は、このユーザーレベルを使用します。デフォルトは 0 です"
-
 [pages.xray.dns]
 "enable" = "DNSを有効にする"
 "enableDesc" = "組み込みDNSサーバーを有効にする"
@@ -568,8 +514,6 @@
 "disableFallbackDesc" = "フォールバックDNSクエリを無効にします"
 "disableFallbackIfMatch" = "一致した場合にフォールバックを無効にする"
 "disableFallbackIfMatchDesc" = "DNSサーバーの一致するドメインリストにヒットした場合、フォールバックDNSクエリを無効にします"
-"enableParallelQuery" = "並列クエリを有効にする"
-"enableParallelQueryDesc" = "複数のサーバーへの並列DNSクエリを有効にして、より高速な解決を実現"
 "strategy" = "クエリ戦略"
 "strategyDesc" = "ドメイン名解決の全体的な戦略"
 "add" = "サーバー追加"
@@ -591,9 +535,9 @@
 
 [pages.settings.security]
 "admin" = "管理者の資格情報"
-"twoFactor" = "二段階認証"
-"twoFactorEnable" = "2FAを有効化"
-"twoFactorEnableDesc" = "セキュリティを強化するために追加の認証層を追加します。"
+"twoFactor" = "二段階認証"  
+"twoFactorEnable" = "2FAを有効化"  
+"twoFactorEnableDesc" = "セキュリティを強化するために追加の認証層を追加します。"  
 "twoFactorModalSetTitle" = "二段階認証を有効にする"
 "twoFactorModalDeleteTitle" = "二段階認証を無効にする"
 "twoFactorModalSteps" = "二段階認証を設定するには、次の手順を実行してください:"
@@ -617,22 +561,21 @@
 "resetOutboundTrafficError" = "送信トラフィックのリセットエラー"
 
 [tgbot]
-"keyboardClosed" = "❌ キーボードを閉じました！"
+"keyboardClosed" = "❌ カスタムキーボードが閉じられました！"
 "noResult" = "❗ 結果がありません！"
-"noQuery" = "❌ クエリが見つかりません！コマンドを再利用してください！"
-"wentWrong" = "❌ 何かがうまくいかなかった！"
-"noIpRecord" = "❗ IPレコードがありません！"
-"noInbounds" = "❗ インバウンドが見つかりません！"
-"unlimited" = "♾ 無制限（リセット）"
+"noQuery" = "❌ クエリが見つかりませんでした！もう一度コマンドを使用してください！"
+"wentWrong" = "❌ 問題が発生しました！"
+"noIpRecord" = "❗ IP記録がありません！"
+"noInbounds" = "❗ インバウンド接続が見つかりません！"
+"unlimited" = "♾ 無制限"
 "add" = "追加"
 "month" = "月"
-"months" = "ヶ月"
+"months" = "月"
 "day" = "日"
-"days" = "日間"
+"days" = "日"
 "hours" = "時間"
-"minutes" = "分"
 "unknown" = "不明"
-"inbounds" = "インバウンド"
+"inbounds" = "インバウンド接続"
 "clients" = "クライアント"
 "offline" = "🔴 オフライン"
 "online" = "🟢 オンライン"
@@ -663,7 +606,6 @@
 "userSaved" = "✅ Telegramユーザーが保存されました。"
 "loginSuccess" = "✅ パネルに正常にログインしました。\r\n"
 "loginFailed" = "❗️ パネルのログインに失敗しました。\r\n"
-"2faFailed" = "2FAエラー"
 "report" = "🕰 定期報告：{{ .RunTime }}\r\n"
 "datetime" = "⏰ 日時：{{ .DateTime }}\r\n"
 "hostname" = "💻 ホスト名：{{ .Hostname }}\r\n"
@@ -690,7 +632,6 @@
 "active" = "💡 有効：{{ .Enable }}\r\n"
 "enabled" = "🚨 有効化済み：{{ .Enable }}\r\n"
 "online" = "🌐 接続ステータス：{{ .Status }}\r\n"
-"lastOnline" = "🔙 最終オンライン: {{ .Time }}\r\n"
 "email" = "📧 メール：{{ .Email }}\r\n"
 "upload" = "🔼 アップロード↑：{{ .Upload }}\r\n"
 "download" = "🔽 ダウンロード↓：{{ .Download }}\r\n"
@@ -705,6 +646,7 @@
 "refreshedOn" = "\r\n📋🔄 更新時間：{{ .Time }}\r\n\r\n"
 "yes" = "✅ はい"
 "no" = "❌ いいえ"
+
 "received_id" = "🔑📥 IDが更新されました。"
 "received_password" = "🔑📥 パスワードが更新されました。"
 "received_email" = "📧📥 メールが更新されました。"
@@ -716,13 +658,14 @@
 "inbound_client_data_id" = "🔄 インバウンド: {{ .InboundRemark }}\n\n🔑 ID: {{ .ClientId }}\n📧 メール: {{ .ClientEmail }}\n📊 トラフィック: {{ .ClientTraffic }}\n📅 有効期限: {{ .ClientExp }}\n🌐 IP制限: {{ .IpLimit }}\n💬 コメント: {{ .ClientComment }}\n\n今すぐこのクライアントをインバウンドに追加できます！"
 "inbound_client_data_pass" = "🔄 インバウンド: {{ .InboundRemark }}\n\n🔑 パスワード: {{ .ClientPass }}\n📧 メール: {{ .ClientEmail }}\n📊 トラフィック: {{ .ClientTraffic }}\n📅 有効期限: {{ .ClientExp }}\n🌐 IP制限: {{ .IpLimit }}\n💬 コメント: {{ .ClientComment }}\n\n今すぐこのクライアントをインバウンドに追加できます！"
 "cancel" = "❌ プロセスがキャンセルされました！\n\nいつでも /start で再開できます。 🔄"
-"error_add_client" = "⚠️ エラー:\n\n {{ .error }}"
-"using_default_value" = "わかりました、デフォルト値を使用します。 😊"
-"incorrect_input" = "入力が無効です。\nフレーズはスペースなしで続けて入力してください。\n正しい例: aaaaaa\n間違った例: aaa aaa 🚫"
+"error_add_client"  = "⚠️ エラー:\n\n {{ .error }}"
+"using_default_value"  = "わかりました、デフォルト値を使用します。 😊"
+"incorrect_input" ="入力が無効です。\nフレーズはスペースなしで続けて入力してください。\n正しい例: aaaaaa\n間違った例: aaa aaa 🚫"
 "AreYouSure" = "本当にいいですか？🤔"
 "SuccessResetTraffic" = "📧 メール: {{ .ClientEmail }}\n🏁 結果: ✅ 成功"
 "FailedResetTraffic" = "📧 メール: {{ .ClientEmail }}\n🏁 結果: ❌ 失敗 \n\n🛠️ エラー: [ {{ .ErrorMessage }} ]"
 "FinishProcess" = "🔚 すべてのクライアントのトラフィックリセットが完了しました。"
+
 
 [tgbot.buttons]
 "closeKeyboard" = "❌ キーボードを閉じる"
@@ -757,6 +700,7 @@
 "limitTraffic" = "🚧 トラフィック制限"
 "getBanLogs" = "禁止ログ"
 "allClients" = "すべてのクライアント"
+
 "addClient" = "クライアントを追加"
 "submitDisable" = "無効として送信 ☑️"
 "submitEnable" = "有効として送信 ✅"
@@ -767,6 +711,7 @@
 "change_comment" = "⚙️💬 コメント"
 "ResetAllTraffics" = "すべてのトラフィックをリセット"
 "SortedTrafficUsageReport" = "ソートされたトラフィック使用レポート"
+
 
 [tgbot.answers]
 "successfulOperation" = "✅ 成功！"

@@ -5,14 +5,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/mhsanaei/3x-ui/v2/logger"
-	"github.com/mhsanaei/3x-ui/v2/xray"
+	"x-ui/logger"
+	"x-ui/xray"
 )
 
-// ClearLogsJob clears old log files to prevent disk space issues.
 type ClearLogsJob struct{}
 
-// NewClearLogsJob creates a new log cleanup job instance.
 func NewClearLogsJob() *ClearLogsJob {
 	return new(ClearLogsJob)
 }
@@ -45,7 +43,7 @@ func (j *ClearLogsJob) Run() {
 	}
 
 	// Clear log files and copy to previous logs
-	for i := range len(logFiles) {
+	for i := 0; i < len(logFiles); i++ {
 		if i > 0 {
 			// Copy to previous logs
 			logFilePrev, err := os.OpenFile(logFilesPrev[i-1], os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)

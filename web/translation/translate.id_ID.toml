@@ -50,7 +50,6 @@
 "fail" = "Gagal"
 "comment" = "Komentar"
 "success" = "Berhasil"
-"lastOnline" = "Terakhir online"
 "getVersion" = "Dapatkan Versi"
 "install" = "Instal"
 "clients" = "Klien"
@@ -72,20 +71,6 @@
 "emptyReverseDesc" = "Tidak ada proxy terbalik yang ditambahkan."
 "somethingWentWrong" = "Terjadi kesalahan"
 
-[subscription]
-"title" = "Info langganan"
-"subId" = "ID langganan"
-"status" = "Status"
-"downloaded" = "Diunduh"
-"uploaded" = "Diunggah"
-"expiry" = "Kedaluwarsa"
-"totalQuota" = "Kuota total"
-"individualLinks" = "Tautan individual"
-"active" = "Aktif"
-"inactive" = "Nonaktif"
-"unlimited" = "Tanpa batas"
-"noExpiry" = "Tanpa kedaluwarsa"
-
 [menu]
 "theme" = "Tema"
 "dark" = "Gelap"
@@ -106,12 +91,12 @@
 "invalidFormData" = "Format data input tidak valid."
 "emptyUsername" = "Nama Pengguna diperlukan"
 "emptyPassword" = "Kata Sandi diperlukan"
-"wrongUsernameOrPassword" = "Username, kata sandi, atau kode dua faktor tidak valid."
+"wrongUsernameOrPassword" = "Username, kata sandi, atau kode dua faktor tidak valid."  
 "successLogin" = "Anda telah berhasil masuk ke akun Anda."
 
 [pages.index]
 "title" = "Ikhtisar"
-"cpu" = "CPU"
+"cpu" = "CPU" 
 "logicalProcessors" = "Prosesor logis"
 "frequency" = "Frekuensi"
 "swap" = "Swap"
@@ -132,6 +117,8 @@
 "operationHours" = "Waktu Aktif"
 "systemLoad" = "Beban Sistem"
 "systemLoadDesc" = "Rata-rata beban sistem selama 1, 5, dan 15 menit terakhir"
+"connectionTcpCountDesc" = "Total koneksi TCP di seluruh sistem"
+"connectionUdpCountDesc" = "Total koneksi UDP di seluruh sistem"
 "connectionCount" = "Statistik Koneksi"
 "ipAddresses" = "Alamat IP"
 "toggleIpVisibility" = "Alihkan visibilitas IP"
@@ -147,8 +134,6 @@
 "xraySwitchVersionPopover" = "Xray berhasil diperbarui"
 "geofileUpdateDialog" = "Apakah Anda yakin ingin memperbarui geofile?"
 "geofileUpdateDialogDesc" = "Ini akan memperbarui file #filename#."
-"geofilesUpdateDialogDesc" = "Ini akan memperbarui semua berkas."
-"geofilesUpdateAll" = "Perbarui semua"
 "geofileUpdatePopover" = "Geofile berhasil diperbarui"
 "dontRefresh" = "Instalasi sedang berlangsung, harap jangan menyegarkan halaman ini"
 "logs" = "Log"
@@ -166,8 +151,6 @@
 "getConfigError" = "Terjadi kesalahan saat mengambil file konfigurasi"
 
 [pages.inbounds]
-"allTimeTraffic" = "Total Lalu Lintas"
-"allTimeTrafficUsage" = "Total Penggunaan Sepanjang Waktu"
 "title" = "Masuk"
 "totalDownUp" = "Total Terkirim/Diterima"
 "totalUsage" = "Penggunaan Total"
@@ -177,13 +160,10 @@
 "remark" = "Catatan"
 "protocol" = "Protokol"
 "port" = "Port"
-"portMap" = "Port Mapping"
 "traffic" = "Traffic"
 "details" = "Rincian"
 "transportConfig" = "Transport"
 "expireDate" = "Durasi"
-"createdAt" = "Dibuat"
-"updatedAt" = "Diperbarui"
 "resetTraffic" = "Reset Traffic"
 "addInbound" = "Tambahkan Masuk"
 "generalActions" = "Tindakan Umum"
@@ -195,6 +175,8 @@
 "deleteClient" = "Hapus Klien"
 "deleteClientContent" = "Apakah Anda yakin ingin menghapus klien?"
 "resetTrafficContent" = "Apakah Anda yakin ingin mereset traffic?"
+"inboundUpdateSuccess" = "Inbound berhasil diperbarui."
+"inboundCreateSuccess" = "Inbound berhasil dibuat."
 "copyLink" = "Salin URL"
 "address" = "Alamat"
 "network" = "Jaringan"
@@ -244,9 +226,6 @@
 "exportInbound" = "Ekspor Masuk"
 "import" = "Impor"
 "importInbound" = "Impor Masuk"
-"periodicTrafficResetTitle" = "Reset Trafik Berkala"
-"periodicTrafficResetDesc" = "Reset otomatis penghitung trafik pada interval tertentu"
-"lastReset" = "Reset Terakhir"
 
 [pages.client]
 "add" = "Tambah Klien"
@@ -266,12 +245,6 @@
 "renew" = "Perpanjang Otomatis"
 "renewDesc" = "Perpanjangan otomatis setelah kedaluwarsa. (0 = nonaktif)(unit: hari)"
 
-[pages.inbounds.periodicTrafficReset]
-"never" = "Tidak Pernah"
-"daily" = "Harian"
-"weekly" = "Mingguan"
-"monthly" = "Bulanan"
-
 [pages.inbounds.toasts]
 "obtain" = "Dapatkan"
 "updateSuccess" = "Pembaruan berhasil"
@@ -289,8 +262,6 @@
 "resetInboundClientTrafficSuccess" = "Lalu lintas telah direset"
 "trafficGetError" = "Gagal mendapatkan data lalu lintas"
 "getNewX25519CertError" = "Terjadi kesalahan saat mendapatkan sertifikat X25519."
-"getNewmldsa65Error" = "Terjadi kesalahan saat mendapatkan sertifikat mldsa65."
-"getNewVlessEncError" = "Terjadi kesalahan saat mendapatkan sertifikat VlessEnc."
 
 [pages.inbounds.stream.general]
 "request" = "Permintaan"
@@ -371,19 +342,8 @@
 "subSettings" = "Langganan"
 "subEnable" = "Aktifkan Layanan Langganan"
 "subEnableDesc" = "Mengaktifkan layanan langganan."
-"subJsonEnable" = "Aktifkan/Nonaktifkan endpoint langganan JSON secara mandiri."
 "subTitle" = "Judul Langganan"
 "subTitleDesc" = "Judul yang ditampilkan di klien VPN"
-"subSupportUrl" = "URL Dukungan"
-"subSupportUrlDesc" = "Tautan dukungan teknis yang ditampilkan di klien VPN"
-"subProfileUrl" = "URL Profil"
-"subProfileUrlDesc" = "Tautan ke situs web Anda yang ditampilkan di klien VPN"
-"subAnnounce" = "Pengumuman"
-"subAnnounceDesc" = "Teks pengumuman yang ditampilkan di klien VPN"
-"subEnableRouting" = "Aktifkan perutean"
-"subEnableRoutingDesc" = "Pengaturan global untuk mengaktifkan perutean (routing) di klien VPN. (Hanya untuk Happ)"
-"subRoutingRules" = "Aturan routing"
-"subRoutingRulesDesc" = "Aturan routing global untuk klien VPN. (Hanya untuk Happ)"
 "subListen" = "IP Pendengar"
 "subListenDesc" = "Alamat IP untuk layanan langganan. (biarkan kosong untuk mendengarkan semua IP)"
 "subPort" = "Port Pendengar"
@@ -460,9 +420,8 @@
 "FreedomStrategyDesc" = "Atur strategi output untuk jaringan dalam Protokol Freedom."
 "RoutingStrategy" = "Strategi Pengalihan Keseluruhan"
 "RoutingStrategyDesc" = "Atur strategi pengalihan lalu lintas keseluruhan untuk menyelesaikan semua permintaan."
-"outboundTestUrl" = "URL tes outbound"
-"outboundTestUrlDesc" = "URL yang digunakan saat menguji konektivitas outbound"
 "Torrent" = "Blokir Protokol BitTorrent"
+"TorrentDesc" = "Memblokir protokol BitTorrent."
 "Inbounds" = "Masuk"
 "InboundsDesc" = "Menerima klien tertentu."
 "Outbounds" = "Keluar"
@@ -525,12 +484,6 @@
 "accountInfo" = "Informasi Akun"
 "outboundStatus" = "Status Keluar"
 "sendThrough" = "Kirim Melalui"
-"test" = "Tes"
-"testResult" = "Hasil Tes"
-"testing" = "Menguji koneksi..."
-"testSuccess" = "Tes berhasil"
-"testFailed" = "Tes gagal"
-"testError" = "Gagal menguji outbound"
 
 [pages.xray.balancer]
 "addBalancer" = "Tambahkan Penyeimbang"
@@ -549,12 +502,6 @@
 "psk" = "Kunci Pra-Bagi"
 "domainStrategy" = "Strategi Domain"
 
-[pages.xray.tun]
-"nameDesc" = "Nama antarmuka TUN. Standar adalah 'xray0'"
-"mtuDesc" = "Unit Transmisi Maksimum. Ukuran maksimum paket data. Standar adalah 1500"
-"userLevel" = "Level Pengguna"
-"userLevelDesc" = "Semua koneksi yang dibuat melalui inbound ini akan menggunakan level pengguna ini. Standar adalah 0"
-
 [pages.xray.dns]
 "enable" = "Aktifkan DNS"
 "enableDesc" = "Aktifkan server DNS bawaan"
@@ -568,8 +515,6 @@
 "disableFallbackDesc" = "Menonaktifkan kueri DNS fallback"
 "disableFallbackIfMatch" = "Nonaktifkan Fallback Jika Cocok"
 "disableFallbackIfMatchDesc" = "Menonaktifkan kueri DNS fallback ketika daftar domain yang cocok dari server DNS terpenuhi"
-"enableParallelQuery" = "Aktifkan Kueri Paralel"
-"enableParallelQueryDesc" = "Aktifkan kueri DNS paralel ke beberapa server untuk resolusi yang lebih cepat"
 "strategy" = "Strategi Kueri"
 "strategyDesc" = "Strategi keseluruhan untuk menyelesaikan nama domain"
 "add" = "Tambahkan Server"
@@ -617,22 +562,21 @@
 "resetOutboundTrafficError" = "Gagal mereset lalu lintas keluar"
 
 [tgbot]
-"keyboardClosed" = "❌ Keyboard ditutup!"
+"keyboardClosed" = "❌ Papan ketik kustom ditutup!"
 "noResult" = "❗ Tidak ada hasil!"
-"noQuery" = "❌ Kueri tidak ditemukan! Silakan gunakan perintah lagi!"
-"wentWrong" = "❌ Terjadi kesalahan!"
+"noQuery" = "❌ Permintaan tidak ditemukan! Harap gunakan perintah lagi!"
+"wentWrong" = "❌ Ada yang salah!"
 "noIpRecord" = "❗ Tidak ada Catatan IP!"
-"noInbounds" = "❗ Tidak ada inbound yang ditemukan!"
-"unlimited" = "♾ Tidak terbatas (Reset)"
+"noInbounds" = "❗ Tidak ada masuk ditemukan!"
+"unlimited" = "♾ Tak terbatas"
 "add" = "Tambah"
 "month" = "Bulan"
 "months" = "Bulan"
 "day" = "Hari"
 "days" = "Hari"
 "hours" = "Jam"
-"minutes" = "Menit"
 "unknown" = "Tidak diketahui"
-"inbounds" = "Inbound"
+"inbounds" = "Masuk"
 "clients" = "Klien"
 "offline" = "🔴 Offline"
 "online" = "🟢 Online"
@@ -663,7 +607,6 @@
 "userSaved" = "✅ Pengguna Telegram tersimpan."
 "loginSuccess" = "✅ Berhasil masuk ke panel.\r\n"
 "loginFailed" = "❗️ Gagal masuk ke panel.\r\n"
-"2faFailed" = "2FA Gagal"
 "report" = "🕰 Laporan Terjadwal: {{ .RunTime }}\r\n"
 "datetime" = "⏰ Tanggal & Waktu: {{ .DateTime }}\r\n"
 "hostname" = "💻 Host: {{ .Hostname }}\r\n"
@@ -690,7 +633,6 @@
 "active" = "💡 Aktif: {{ .Enable }}\r\n"
 "enabled" = "🚨 Diaktifkan: {{ .Enable }}\r\n"
 "online" = "🌐 Status Koneksi: {{ .Status }}\r\n"
-"lastOnline" = "🔙 Terakhir online: {{ .Time }}\r\n"
 "email" = "📧 Email: {{ .Email }}\r\n"
 "upload" = "🔼 Unggah: ↑{{ .Upload }}\r\n"
 "download" = "🔽 Unduh: ↓{{ .Download }}\r\n"
@@ -705,6 +647,7 @@
 "refreshedOn" = "\r\n📋🔄 Diperbarui Pada: {{ .Time }}\r\n\r\n"
 "yes" = "✅ Ya"
 "no" = "❌ Tidak"
+
 "received_id" = "🔑📥 ID diperbarui."
 "received_password" = "🔑📥 Kata sandi diperbarui."
 "received_email" = "📧📥 Email diperbarui."
@@ -716,13 +659,14 @@
 "inbound_client_data_id" = "🔄 Masuk: {{ .InboundRemark }}\n\n🔑 ID: {{ .ClientId }}\n📧 Email: {{ .ClientEmail }}\n📊 Lalu lintas: {{ .ClientTraffic }}\n📅 Tanggal Kedaluwarsa: {{ .ClientExp }}\n🌐 Batas IP: {{ .IpLimit }}\n💬 Komentar: {{ .ClientComment }}\n\nSekarang kamu bisa menambahkan klien ke inbound!"
 "inbound_client_data_pass" = "🔄 Masuk: {{ .InboundRemark }}\n\n🔑 Kata sandi: {{ .ClientPass }}\n📧 Email: {{ .ClientEmail }}\n📊 Lalu lintas: {{ .ClientTraffic }}\n📅 Tanggal Kedaluwarsa: {{ .ClientExp }}\n🌐 Batas IP: {{ .IpLimit }}\n💬 Komentar: {{ .ClientComment }}\n\nSekarang kamu bisa menambahkan klien ke inbound!"
 "cancel" = "❌ Proses Dibatalkan! \n\nAnda dapat /start lagi kapan saja. 🔄"
-"error_add_client" = "⚠️ Kesalahan:\n\n {{ .error }}"
-"using_default_value" = "Oke, saya akan tetap menggunakan nilai default. 😊"
-"incorrect_input" = "Masukan Anda tidak valid.\nFrasa harus berlanjut tanpa spasi.\nContoh benar: aaaaaa\nContoh salah: aaa aaa 🚫"
+"error_add_client"  = "⚠️ Kesalahan:\n\n {{ .error }}"
+"using_default_value"  = "Oke, saya akan tetap menggunakan nilai default. 😊"
+"incorrect_input" ="Masukan Anda tidak valid.\nFrasa harus berlanjut tanpa spasi.\nContoh benar: aaaaaa\nContoh salah: aaa aaa 🚫"
 "AreYouSure" = "Apakah kamu yakin? 🤔"
 "SuccessResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Hasil: ✅ Berhasil"
 "FailedResetTraffic" = "📧 Email: {{ .ClientEmail }}\n🏁 Hasil: ❌ Gagal \n\n🛠️ Kesalahan: [ {{ .ErrorMessage }} ]"
 "FinishProcess" = "🔚 Proses reset traffic selesai untuk semua klien."
+
 
 [tgbot.buttons]
 "closeKeyboard" = "❌ Tutup Papan Ketik"
@@ -757,6 +701,7 @@
 "limitTraffic" = "🚧 Batas Lalu Lintas"
 "getBanLogs" = "Dapatkan Log Pemblokiran"
 "allClients" = "Semua Klien"
+
 "addClient" = "Tambah Klien"
 "submitDisable" = "Kirim Sebagai Nonaktif ☑️"
 "submitEnable" = "Kirim Sebagai Aktif ✅"
@@ -767,6 +712,7 @@
 "change_comment" = "⚙️💬 Komentar"
 "ResetAllTraffics" = "Reset Semua Lalu Lintas"
 "SortedTrafficUsageReport" = "Laporan Penggunaan Lalu Lintas yang Terurut"
+
 
 [tgbot.answers]
 "successfulOperation" = "✅ Operasi berhasil!"
