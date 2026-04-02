@@ -1378,13 +1378,9 @@ show_menu() {
   ${green}24.${plain} Speedtest by Ookla
   ${green}25.${plain} 安装订阅转换 
 ——————————————————————
-  ${green}若在使用过程中有任何问题${plain}
-  ${yellow}请加入〔3X-UI〕中文交流群${plain}
-  ${red}https://t.me/XUI_CN ${yellow}截图进行反馈${plain}
-  ${green}〔3X-UI〕优化版项目地址${plain}
-  ${yellow}https://github.com/anjing-liu/3x-ui${plain}
-  ${green}详细〔安装配置〕教程${plain}
-  ${yellow}https://xeefei.github.io/xufei/2024/05/3x-ui${plain}
+  ${green}VPS评测网站：https://www.1373737.xyz/${plain}
+  ${yellow}服务器购买地址：https://my.frantech.ca/aff.php?aff=4337${plain}
+  ${red}YouTube频道：https://www.youtube.com/@cyndiboy7881${plain}
 ——————————————————————
 "
     show_status
