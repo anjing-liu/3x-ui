@@ -1,30 +1,5 @@
 <p align="center"><a href="#"><img src="./media/3X-UI.png" alt="Image"></a></p>
 
-**---------------------------------------一个更好的面板 • 基于Xray Core构建------------------------------**
-
-
-[![](https://img.shields.io/github/v/release/xeefei/3x-ui.svg?style=for-the-badge)](https://github.com/xeefei/3x-ui/releases)
-[![](https://img.shields.io/github/actions/workflow/status/xeefei/3x-ui/release.yml.svg?style=for-the-badge)](https://github.com/xeefei/3x-ui/actions)
-[![GO Version](https://img.shields.io/github/go-mod/go-version/xeefei/3x-ui.svg?style=for-the-badge)](#)
-[![Downloads](https://img.shields.io/github/downloads/xeefei/3x-ui/total.svg?style=for-the-badge)](https://github.com/xeefei/3x-ui/releases/latest)
-[![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true&style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-
-> **声明：** 此项目仅供个人学习、交流使用，请遵守当地法律法规，勿用于非法用途；请勿用于生产环境。
-
-> **注意：** 在使用此项目和〔教程〕过程中，若因违反以上声明使用规则而产生的一切后果由使用者自负。
-
-**如果此项目对你有用，请给一个**:star2:
-
-<p align="left">
-  <a href="https://buymeacoffee.com/xeefeiz" target="_blank">
-    <img src="./media/buymeacoffe.png" alt="Image">
-  </a>
-</p>
-
-- 赞助地址（USDT/TRC20）：`TYQEmQp1P65u9bG7KPehgJdvuokfb72YkZ`
-
-## [【3X-UI】中文交流群：https://t.me/XUI_CN](https://t.me/XUI_CN)
-## [【3X-UI】详细安装流程步骤：https://xeefei.github.io/xufei/2024/05/3x-ui/](https://xeefei.github.io/xufei/2024/05/3x-ui/)
 
 ------------
 ## ✰〔3X-UI优化版〕跟原版3X-UI的区别？✰
@@ -733,23 +708,8 @@ XUI_BIN_FOLDER="bin" XUI_DB_FOLDER="/etc/x-ui" go build main.go
 
 ------------
 ## 广告赞助
-- 如果你觉得本项目对你有用，而且你也恰巧有这方面的需求，你也可以选择通过我的购买链接赞助我。
-- [搬瓦工GIA高端线路，仅推荐购买GIA套餐](https://bandwagonhost.com/aff.php?aff=75015)
-- [Dmit高端GIA线路](https://www.dmit.io/aff.php?aff=9326)
-- [白丝云【4837线路】实惠量大管饱](https://cloudsilk.io/aff.php?aff=706)
+- VPS评测网站：https://www.1373737.xyz/
+- 服务器购买地址：https://my.frantech.ca/aff.php?aff=4337
+- YouTube频道：https://www.youtube.com/@cyndiboy7881
 
 ------------
-## 特别感谢
-
-- [alireza0](https://github.com/alireza0/)
-
-------------
-## 致谢
-
-- [Iran v2ray rules](https://github.com/chocolate4u/Iran-v2ray-rules) (License: **GPL-3.0**): _Enhanced v2ray/xray and v2ray/xray-clients routing rules with built-in Iranian domains and a focus on security and adblocking._
-- [Vietnam Adblock rules](https://github.com/vuong2023/vn-v2ray-rules) (License: **GPL-3.0**): _A hosted domain hosted in Vietnam and blocklist with the most efficiency for Vietnamese._
-
-------------
-## Star 趋势
-
-[![Stargazers over time](https://starchart.cc/xeefei/3x-ui.svg)](https://starchart.cc/xeefei/3x-ui)
