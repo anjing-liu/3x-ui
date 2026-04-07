@@ -556,7 +556,7 @@ ssl_cert_issue() {
     echo -e "${green}============================================${plain}"
     echo ""
     
-    set_cert_to_panel
+    set_cert_to_panel $domain
 }
 
 ssl_cert_issue_CF() {
