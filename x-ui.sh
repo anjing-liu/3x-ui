@@ -319,7 +319,7 @@ enable_bbr() {
 }
 
 update_shell() {
-    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/anjing-liu/3x-ui/raw/main/x-ui.sh
+    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/anjing-liu/3x-ui/raw/master/x-ui.sh
     [[ $? != 0 ]] && { LOGE "下载脚本失败，请检查机器是否可以连接至 GitHub"; before_show_menu; }
     chmod +x /usr/bin/x-ui
     LOGI "升级脚本成功，请重新运行脚本" && exit 0
