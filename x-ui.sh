@@ -481,13 +481,20 @@ set_cert_to_panel() {
             /usr/local/x-ui/x-ui cert -webCert "$webCertFile" -webCertKey "$webKeyFile"
             sleep 2
             systemctl start x-ui
+            sleep 3
+            local panelInfo=$(/usr/local/x-ui/x-ui setting -show true 2>/dev/null)
+            local panelPort=$(echo "$panelInfo" | grep -oP 'port:\s*\K\d+' | head -1)
+            local panelPath=$(echo "$panelInfo" | grep -oP 'webBasePath:\s*\K\S+' | head -1)
+            [[ -z "$panelPort" ]] && panelPort="2053"
+            [[ -z "$panelPath" ]] && panelPath="/"
+            [[ "$panelPath" != "/"* ]] && panelPath="/${panelPath}"
             echo ""
             echo -e "${green}============================================${plain}"
             echo -e "${green}  面板证书设置成功！${plain}"
             echo -e "${green}============================================${plain}"
             echo ""
             echo -e "${yellow}面板访问地址：${plain}"
-            echo -e "${green}  https://${domain}:您的端口/您的路径${plain}"
+            echo -e "${green}  https://${domain}:${panelPort}${panelPath}${plain}"
             echo ""
         else
             echo "未找到域名的证书或私钥: $domain"
