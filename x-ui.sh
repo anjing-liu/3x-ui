@@ -124,7 +124,7 @@ update_menu() {
     echo -e "${yellow}更新菜单项${plain}"
     confirm "此功能会将所有菜单项更新为最新显示状态" "y"
     [[ $? != 0 ]] && { LOGE "Cancelled"; [[ $# == 0 ]] && before_show_menu; return 0; }
-    wget --no-check-certificate -O /usr/bin/x-ui https://raw.githubusercontent.com/anjing-liu/3x-ui/main/x-ui.sh
+    wget --no-check-certificate -O /usr/bin/x-ui https://raw.githubusercontent.com/anjing-liu/3x-ui/master/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh /usr/bin/x-ui
     [[ $? == 0 ]] && { echo -e "${green}更新成功，面板已自动重启${plain}"; exit 0; } || { echo -e "${red}更新菜单项失败${plain}"; return 1; }
 }
