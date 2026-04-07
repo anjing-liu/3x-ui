@@ -484,6 +484,7 @@ set_cert_to_panel() {
             local panelInfo=$(/usr/local/x-ui/x-ui setting -show true 2>/dev/null)
             local panelPort=$(echo "$panelInfo" | grep -oP 'port:\s*\K\d+' | head -1)
             local panelPath=$(echo "$panelInfo" | grep -oP 'webBasePath:\s*\K\S+' | head -1)
+            local serverIP=$(curl -s4m8 ifconfig.me -k 2>/dev/null || curl -s4 ip.sb 2>/dev/null)
             [[ -z "$panelPort" ]] && panelPort="2053"
             [[ -z "$panelPath" ]] && panelPath="/"
             [[ "$panelPath" != "/"* ]] && panelPath="/${panelPath}"
@@ -493,7 +494,8 @@ set_cert_to_panel() {
             echo -e "${green}============================================${plain}"
             echo ""
             echo -e "${yellow}面板访问地址：${plain}"
-            echo -e "${green}  https://${domain}:${panelPort}${panelPath}${plain}"
+            echo -e "${green}  域名: https://${domain}:${panelPort}${panelPath}${plain}"
+            [[ -n "$serverIP" ]] && echo -e "${green}  IP:    https://${serverIP}:${panelPort}${panelPath}${plain}"
             echo ""
         else
             echo "未找到域名的证书或私钥: $domain"
