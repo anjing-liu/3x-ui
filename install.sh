@@ -364,15 +364,47 @@ config_ssl_domain() {
         
         # 配置面板证书
         echo -e "${yellow}-------->>>> 正在配置面板SSL证书...${plain}"
-        /usr/local/x-ui/x-ui setting -webCert ${certPath}/fullchain.pem -webCertKey ${certPath}/privkey.pem
         
-        echo ""
-        echo -e "${green}============================================${plain}"
-        echo -e "${green}  面板SSL证书配置完成！${plain}"
-        echo -e "${green}============================================${plain}"
-        echo ""
-        echo -e "${yellow}面板访问地址：${plain}"
-        echo -e "${green}  https://${domain}:${config_port}/${config_webBasePath}${plain}"
+        # 等待面板完全启动
+        sleep 3
+        
+        # 配置证书（带重试）
+        for i in 1 2 3; do
+            /usr/local/x-ui/x-ui setting -webCert ${certPath}/fullchain.pem -webCertKey ${certPath}/privkey.pem
+            sleep 2
+            
+            # 验证配置是否成功
+            cert_check=$(/usr/local/x-ui/x-ui setting -getCert 2>/dev/null | grep -c "cert:" || echo "0")
+            if [[ ${cert_check} -gt 0 ]]; then
+                echo -e "${green}证书配置成功！${plain}"
+                break
+            else
+                echo -e "${yellow}配置失败，重试第 ${i} 次...${plain}"
+                sleep 2
+            fi
+        done
+        
+        # 重启面板使配置生效
+        echo -e "${yellow}重启面板使证书配置生效...${plain}"
+        systemctl restart x-ui
+        sleep 3
+        
+        # 最终检查
+        cert_final=$(/usr/local/x-ui/x-ui setting -getCert 2>/dev/null | grep "cert:" | awk '{print $2}')
+        if [[ -n "${cert_final}" ]]; then
+            echo ""
+            echo -e "${green}============================================${plain}"
+            echo -e "${green}  面板SSL证书配置完成！${plain}"
+            echo -e "${green}============================================${plain}"
+            echo ""
+            echo -e "${yellow}面板访问地址：${plain}"
+            echo -e "${green}  https://${domain}:${config_port}${config_webBasePath}${plain}"
+        else
+            echo ""
+            echo -e "${red}警告：证书配置可能未生效，请稍后手动检查：${plain}"
+            echo -e "${yellow}运行: /usr/local/x-ui/x-ui setting -getCert${plain}"
+            echo -e "${yellow}如需手动配置，请进入面板后台「面板设置」->「常规」中填写证书路径${plain}"
+        fi
         echo ""
         echo -e "${yellow}提示：如果申请证书失败，请确保 80 和 443 端口已放行${plain}"
         echo ""
