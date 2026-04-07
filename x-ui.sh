@@ -463,28 +463,37 @@ ssl_cert_issue_main() {
 }
 
 set_cert_to_panel() {
-    local domains=$(find /root/cert/ -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)
-    [[ -z "$domains" ]] && { echo "未找到证书。"; return 1; }
-    echo "可用域名："
-    echo "$domains"
-    read -p "请选择要为面板设置路径的域名: " domain
-    if echo "$domains" | grep -qw "$domain"; then
+    local domain="$1"
+    [[ -z "$domain" ]] && {
+        local domains=$(find /root/cert/ -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)
+        [[ -z "$domains" ]] && { echo "未找到证书。"; return 1; }
+        echo "可用域名："
+        echo "$domains"
+        read -p "请选择要为面板设置路径的域名: " domain
+    }
+    if [[ -n "$domain" ]]; then
         local webCertFile="/root/cert/${domain}/fullchain.pem"
         local webKeyFile="/root/cert/${domain}/privkey.pem"
         if [[ -f "${webCertFile}" && -f "${webKeyFile}" ]]; then
+            echo "正在为域名 ${domain} 设置面板证书..."
             systemctl stop x-ui
             sleep 2
             /usr/local/x-ui/x-ui cert -webCert "$webCertFile" -webCertKey "$webKeyFile"
             sleep 2
             systemctl start x-ui
-            echo "已为域名设置面板路径: $domain"
-            echo "  - 证书文件: $webCertFile"
-            echo "  - 私钥文件: $webKeyFile"
+            echo ""
+            echo -e "${green}============================================${plain}"
+            echo -e "${green}  面板证书设置成功！${plain}"
+            echo -e "${green}============================================${plain}"
+            echo ""
+            echo -e "${yellow}面板访问地址：${plain}"
+            echo -e "${green}  https://${domain}:您的端口/您的路径${plain}"
+            echo ""
         else
             echo "未找到域名的证书或私钥: $domain"
         fi
     else
-        echo "输入的域名无效。"
+        echo "未输入域名。"
     fi
 }
 
@@ -532,7 +541,7 @@ ssl_cert_issue() {
     [[ $? -ne 0 ]] && { LOGE "安装证书失败"; rm -rf ~/.acme.sh/${domain}; exit 1; } || LOGI "安装证书成功，启用自动续订..."
     
     ~/.acme.sh/acme.sh --upgrade --auto-upgrade
-    [[ $? -ne 0 ]] && { LOGE "自动续订失败，证书详细信息:"; ls -lah cert/*; chmod 755 $certPath/*; exit 1; } || { LOGI "自动续订成功，证书详细信息:"; ls -lah cert/*; chmod 755 $certPath/*; }
+    [[ $? -ne 0 ]] && { LOGE "自动续订失败，证书详细信息:"; ls -lah cert/*; chmod 755 $certPath/*; } || { LOGI "自动续订成功，证书详细信息:"; ls -lah cert/*; chmod 755 $certPath/*; }
     
     echo ""
     echo -e "${green}============================================${plain}"
@@ -540,10 +549,7 @@ ssl_cert_issue() {
     echo -e "${green}============================================${plain}"
     echo ""
     
-    read -p "$(echo -e "${green}是否需要为面板设置此证书？${plain}选择"n"跳过 [y/n]：")" set_cert
-    if [[ "${set_cert}" == "y" || "${set_cert}" == "Y" ]]; then
-        set_cert_to_panel
-    fi
+    set_cert_to_panel
 }
 
 ssl_cert_issue_CF() {
