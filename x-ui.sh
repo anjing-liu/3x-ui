@@ -109,14 +109,14 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://raw.githubusercontent.com/anjing-liu/3x-ui/main/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/anjing-liu/3x-ui/master/install.sh)
     [[ $? == 0 ]] && { [[ $# == 0 ]] && start || start 0; }
 }
 
 update() {
     confirm "$(echo -e "${green}该功能将强制安装最新版本，并且数据不会丢失。${red}你想继续吗？${plain}---->>请输入")" "y"
     [[ $? != 0 ]] && { LOGE "已取消"; [[ $# == 0 ]] && before_show_menu; return 0; }
-    bash <(curl -Ls https://raw.githubusercontent.com/anjing-liu/3x-ui/main/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/anjing-liu/3x-ui/master/install.sh)
     [[ $? == 0 ]] && { LOGI "更新完成，面板已自动重启"; exit 0; }
 }
 
