@@ -476,10 +476,13 @@ set_cert_to_panel() {
         local webKeyFile="/root/cert/${domain}/privkey.pem"
         if [[ -f "${webCertFile}" && -f "${webKeyFile}" ]]; then
             echo "正在为域名 ${domain} 设置面板证书..."
+            echo "停止面板..."
             systemctl stop x-ui
             sleep 2
+            echo "配置证书..."
             /usr/local/x-ui/x-ui cert -webCert "$webCertFile" -webCertKey "$webKeyFile"
             sleep 2
+            echo "启动面板..."
             systemctl start x-ui
             sleep 3
             local panelInfo=$(/usr/local/x-ui/x-ui setting -show true 2>/dev/null)
