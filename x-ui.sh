@@ -497,6 +497,12 @@ set_cert_to_panel() {
             echo -e "${green}  域名: https://${domain}:${panelPort}${panelPath}${plain}"
             [[ -n "$serverIP" ]] && echo -e "${green}  IP:    https://${serverIP}:${panelPort}${panelPath}${plain}"
             echo ""
+            echo "——————————————————————"
+            echo "  VPS评测网站：https://www.1373737.xyz/"
+            echo "  服务器购买地址：https://my.frantech.ca/aff.php?aff=4337"
+            echo "  YouTube频道：https://www.youtube.com/@cyndiboy7881"
+            echo "——————————————————————"
+            echo ""
         else
             echo "未找到域名的证书或私钥: $domain"
         fi
