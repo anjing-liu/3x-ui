@@ -252,19 +252,19 @@ config_ssl_domain() {
         
         # Install socat if needed
         if ! command -v socat &> /dev/null; then
-            echo -e "${yellow}正在安装 socat...${plain}"
+            echo -e "${yellow}正在安装 socat 和 lsof...${plain}"
             case "${release}" in
                 ubuntu | debian | armbian)
-                    apt-get update && apt-get install -y -q socat
+                    apt-get update && apt-get install -y -q socat lsof python3
                     ;;
                 centos | rhel | almalinux | rocky | ol)
-                    yum install -y -q socat
+                    yum install -y -q socat lsof python3
                     ;;
                 fedora | amzn | virtuozzo)
-                    dnf install -y -q socat
+                    dnf install -y -q socat lsof python3
                     ;;
                 *)
-                    apt-get update && apt-get install -y -q socat
+                    apt-get update && apt-get install -y -q socat lsof python3
                     ;;
             esac
         fi
@@ -305,21 +305,39 @@ config_ssl_domain() {
         echo -e "${green}-------->>>> 正在申请 SSL 证书...${plain}"
         echo ""
         
-        # Issue certificate using acme.sh
-        ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-        
-        # Try to issue certificate with standalone mode
-        cert_output=$(~/.acme.sh/acme.sh --issue -d ${domain_name} --standalone --http-port 80 2>&1)
-        
-        if [[ $? -ne 0 ]]; then
-            echo -e "${yellow}standalone 模式失败，尝试 webroot 模式...${plain}"
+        # Check if port 80 is available
+        if ! lsof -i :80 >/dev/null 2>&1; then
+            echo -e "${yellow}80 端口可用，使用 standalone 模式申请证书...${plain}"
+            
+            # Issue certificate using acme.sh standalone mode
+            cert_output=$(~/.acme.sh/acme.sh --issue -d ${domain_name} --standalone --http-port 80 2>&1)
+            cert_result=$?
+        else
+            echo -e "${yellow}80 端口被占用，尝试使用自定义 HTTP 服务器模式...${plain}"
+            
+            # Create a simple HTTP server for ACME challenge
             mkdir -p /tmp/acme-challenge
-            cert_output=$(~/.acme.sh/acme.sh --issue -d ${domain_name} --webroot /tmp/acme-challenge 2>&1)
+            cd /tmp/acme-challenge
+            
+            # Start a simple Python HTTP server in background
+            python3 -m http.server 80 > /dev/null 2>&1 &
+            python_pid=$!
+            sleep 2
+            
+            # Issue certificate using webroot mode
+            cert_output=$(~/.acme.sh/acme.sh --issue -d ${domain_name} --webroot /tmp/acme-challenge --httpport 80 2>&1)
+            cert_result=$?
+            
+            # Stop the Python HTTP server
+            kill $python_pid 2>/dev/null
+            cd -
         fi
         
-        if [[ $? -ne 0 ]]; then
+        if [[ ${cert_result} -ne 0 ]]; then
             echo -e "${red}证书申请失败！错误信息：${plain}"
             echo "${cert_output}"
+            echo ""
+            echo -e "${yellow}提示：如果80端口被占用，请先关闭相关程序（如 nginx/apache），或者选择跳过，稍后使用 x-ui 脚本的 [18] SSL证书管理 功能配置${plain}"
             return 1
         fi
         
