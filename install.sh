@@ -381,7 +381,8 @@ config_ssl_domain() {
         echo ""
         echo -e "${red}------------->>>> 跳过域名/SSL配置 <<<<-------------${plain}"
         echo ""
-        echo -e "${yellow}提示：后续可通过 x-ui 命令选择 [18] SSL证书管理 来配置${plain}"
+        echo -e "${yellow}提示：后续可通过以下方式配置域名/证书：${plain}"
+        echo -e "${green}  运行 x-ui 命令，选择 [18] SSL证书管理 -> [1] 获取SSL证书${plain}"
         echo ""
     fi
 }
@@ -515,6 +516,18 @@ echo -e "----------------------------------------------"
 sleep 4
 info=$(/usr/local/x-ui/x-ui setting -show true)
 echo -e "${info}${plain}"
+echo ""
+
+# 检查是否已配置 SSL 证书
+cert_count=$(ls -la /root/cert/ 2>/dev/null | grep -c "\.pem$" || echo "0")
+if [[ ${cert_count} -gt 0 ]]; then
+    echo -e "${green}SSL 证书已配置完成！${plain}"
+    echo -e "${yellow}面板访问地址：${plain}"
+    echo -e "${green}  https://您的域名:2053/${plain}"
+else
+    echo -e "${yellow}域名/SSL证书配置提示：${plain}"
+    echo -e "${green}  运行 x-ui 命令，选择 [18] SSL证书管理 -> [1] 获取SSL证书${plain}"
+fi
 echo ""
 echo -e "若您忘记了上述面板信息，后期可通过x-ui命令进入脚本${red}输入数字〔10〕选项获取${plain}"
 echo ""
