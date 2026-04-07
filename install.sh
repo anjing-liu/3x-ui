@@ -364,7 +364,7 @@ config_ssl_domain() {
         
         # 配置面板证书
         echo -e "${yellow}-------->>>> 正在配置面板SSL证书...${plain}"
-        /usr/local/x-ui/x-ui setting -cert ${certPath}/fullchain.pem -key ${certPath}/privkey.pem
+        /usr/local/x-ui/x-ui setting -webCert ${certPath}/fullchain.pem -webCertKey ${certPath}/privkey.pem
         
         echo ""
         echo -e "${green}============================================${plain}"
@@ -519,8 +519,7 @@ echo -e "${info}${plain}"
 echo ""
 
 # 检查是否已配置 SSL 证书
-cert_count=$(ls -la /root/cert/ 2>/dev/null | grep -c "\.pem$" || echo "0")
-if [[ ${cert_count} -gt 0 ]]; then
+if ls /root/cert/*/fullchain.pem 1>/dev/null 2>&1; then
     echo -e "${green}SSL 证书已配置完成！${plain}"
     echo -e "${yellow}面板访问地址：${plain}"
     echo -e "${green}  https://您的域名:2053/${plain}"
