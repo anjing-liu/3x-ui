@@ -224,7 +224,7 @@ config_after_install() {
     /usr/local/x-ui/x-ui migrate
 }
 
-# Configure SSL certificate and domain
+# Configure SSL certificate and domain (基于 x-ui.sh ssl_cert_issue 函数)
 config_ssl_domain() {
     echo ""
     echo -e "${yellow}======>>>> 是否需要配置域名访问面板？<<<<======${plain}"
@@ -237,154 +237,146 @@ config_ssl_domain() {
     read -p "$(echo -e "${green}是否配置域名/证书？${red}选择"n"跳过配置${plain} [y/n]：")" ssl_config_confirm
     
     if [[ "${ssl_config_confirm}" == "y" || "${ssl_config_confirm}" == "Y" ]]; then
-        echo ""
-        echo -e "${yellow}-------->>>> 正在检查 acme.sh 环境...${plain}"
         
-        # Check and install acme.sh if needed
-        if [[ ! -f ~/.acme.sh/acme.sh ]]; then
+        # 检查 acme.sh 是否安装
+        if ! command -v ~/.acme.sh/acme.sh &>/dev/null; then
             echo -e "${yellow}未找到 acme.sh, 正在安装...${plain}"
             curl -s https://get.acme.sh | sh
-            if [[ $? -ne 0 ]]; then
+            if [ $? -ne 0 ]; then
                 echo -e "${red}安装 acme.sh 失败，请手动安装后重试${plain}"
                 return 1
             fi
+            echo -e "${green}安装 acme.sh 成功${plain}"
         fi
         
-        # Install socat if needed
-        if ! command -v socat &> /dev/null; then
-            echo -e "${yellow}正在安装 socat 和 lsof...${plain}"
-            case "${release}" in
-                ubuntu | debian | armbian)
-                    apt-get update && apt-get install -y -q socat lsof python3
-                    ;;
-                centos | rhel | almalinux | rocky | ol)
-                    yum install -y -q socat lsof python3
-                    ;;
-                fedora | amzn | virtuozzo)
-                    dnf install -y -q socat lsof python3
-                    ;;
-                *)
-                    apt-get update && apt-get install -y -q socat lsof python3
-                    ;;
-            esac
+        # 安装 socat
+        echo -e "${yellow}正在安装 socat...${plain}"
+        case "${release}" in
+            ubuntu | debian | armbian)
+                apt-get update && apt-get install -y socat
+                ;;
+            centos | almalinux | rocky | oracle)
+                yum -y update && yum -y install socat
+                ;;
+            fedora)
+                dnf -y update && dnf -y install socat
+                ;;
+            arch | manjaro)
+                pacman -Sy --noconfirm socat
+                ;;
+            *)
+                apt-get update && apt-get install -y socat
+                ;;
+        esac
+        if [ $? -ne 0 ]; then
+            echo -e "${red}安装 socat 失败，请检查日志${plain}"
+            return 1
+        else
+            echo -e "${green}安装 socat 成功${plain}"
         fi
         
-        echo ""
-        read -p "请输入您的域名: " domain_name
-        if [[ -z "${domain_name}" ]]; then
+        # 获取域名
+        local domain=""
+        read -p "请输入您的域名: " domain
+        if [[ -z "${domain}" ]]; then
             echo -e "${red}域名不能为空，跳过SSL配置...${plain}"
             return 1
         fi
         
-        echo -e "${yellow}-------->>>> 正在检查域名解析...${plain}"
+        echo -e "${yellow}您的域名是：${domain}，正在检查...${plain}"
         
-        # Check domain DNS resolution
-        domain_ip=$(dig +short ${domain_name} | tail -n 1)
-        server_ip=$(curl -s4m8 ifconfig.me -k | sed -n 1p)
-        
-        if [[ -z "${domain_ip}" ]]; then
-            echo -e "${red}域名解析失败，请确保域名已正确解析到服务器IP${plain}"
+        # 检查是否已有证书
+        local currentCert=$(~/.acme.sh/acme.sh --list | tail -1 | awk '{print $1}')
+        if [ "${currentCert}" == "${domain}" ]; then
+            echo -e "${red}系统已经有证书，无法再次颁发，当前证书信息:${plain}"
+            ~/.acme.sh/acme.sh --list
             return 1
         fi
         
-        echo -e "${green}域名解析检查: ${domain_name} -> ${domain_ip}${plain}"
-        echo -e "${green}服务器IP: ${server_ip}${plain}"
+        echo -e "${green}您的域现在已准备好颁发证书...${plain}"
         
-        if [[ "${domain_ip}" != "${server_ip}" ]]; then
-            echo -e "${red}警告：域名解析的IP与服务器IP不匹配！${plain}"
-            echo -e "${yellow}域名解析IP: ${domain_ip}${plain}"
-            echo -e "${yellow}服务器IP: ${server_ip}${plain}"
-            read -p "$(echo -e "${yellow}是否继续安装证书？[y/n]：")" continue_cert
-            if [[ "${continue_cert}" != "y" && "${continue_cert}" != "Y" ]]; then
-                echo -e "${red}取消证书安装...${plain}"
-                return 1
-            fi
+        # 创建证书目录
+        local certPath="/root/cert/${domain}"
+        if [ ! -d "$certPath" ]; then
+            mkdir -p "$certPath"
+        else
+            rm -rf "$certPath"
+            mkdir -p "$certPath"
         fi
         
+        # 获取端口
+        local WebPort=80
+        read -p "请选择您使用的端口，默认为 80 端口:" WebPort
+        if [[ ${WebPort} -gt 65535 || ${WebPort} -lt 1 ]]; then
+            echo -e "${red}您输入的端口 ${WebPort} 无效，将使用默认端口${plain}"
+            WebPort=80
+        fi
+        echo -e "${yellow}将使用端口：${WebPort} 来颁发证书，请确保该端口已开启...${plain}"
+        
+        # 申请证书
         echo ""
         echo -e "${green}-------->>>> 正在申请 SSL 证书...${plain}"
-        echo ""
+        ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+        ~/.acme.sh/acme.sh --issue -d ${domain} --listen-v6 --standalone --httpport ${WebPort}
         
-        # Check if port 80 is available
-        if ! lsof -i :80 >/dev/null 2>&1; then
-            echo -e "${yellow}80 端口可用，使用 standalone 模式申请证书...${plain}"
-            
-            # Issue certificate using acme.sh standalone mode
-            cert_output=$(~/.acme.sh/acme.sh --issue -d ${domain_name} --standalone --http-port 80 2>&1)
-            cert_result=$?
+        if [ $? -ne 0 ]; then
+            echo -e "${red}颁发证书失败，请检查日志${plain}"
+            rm -rf ~/.acme.sh/${domain}
+            return 1
         else
-            echo -e "${yellow}80 端口被占用，尝试使用自定义 HTTP 服务器模式...${plain}"
-            
-            # Create a simple HTTP server for ACME challenge
-            mkdir -p /tmp/acme-challenge
-            cd /tmp/acme-challenge
-            
-            # Start a simple Python HTTP server in background
-            python3 -m http.server 80 > /dev/null 2>&1 &
-            python_pid=$!
-            sleep 2
-            
-            # Issue certificate using webroot mode
-            cert_output=$(~/.acme.sh/acme.sh --issue -d ${domain_name} --webroot /tmp/acme-challenge --httpport 80 2>&1)
-            cert_result=$?
-            
-            # Stop the Python HTTP server
-            kill $python_pid 2>/dev/null
-            cd -
+            echo -e "${yellow}颁发证书成功，正在安装证书...${plain}"
         fi
         
-        if [[ ${cert_result} -ne 0 ]]; then
-            echo -e "${red}证书申请失败！错误信息：${plain}"
-            echo "${cert_output}"
-            echo ""
-            echo -e "${yellow}提示：如果80端口被占用，请先关闭相关程序（如 nginx/apache），或者选择跳过，稍后使用 x-ui 脚本的 [18] SSL证书管理 功能配置${plain}"
+        # 安装证书
+        ~/.acme.sh/acme.sh --install-cert -d ${domain} \
+            --key-file /root/cert/${domain}/privkey.pem \
+            --fullchain-file /root/cert/${domain}/fullchain.pem
+        
+        if [ $? -ne 0 ]; then
+            echo -e "${red}安装证书失败${plain}"
+            rm -rf ~/.acme.sh/${domain}
             return 1
+        else
+            echo -e "${green}安装证书成功，启用自动续订...${plain}"
+        fi
+        
+        # 启用自动续签
+        ~/.acme.sh/acme.sh --upgrade --auto-upgrade
+        if [ $? -ne 0 ]; then
+            echo -e "${yellow}自动续订设置失败，证书详细信息:${plain}"
+            ls -lah /root/cert/
+            chmod 755 $certPath/*
+        else
+            echo -e "${green}自动续订成功，证书详细信息:${plain}"
+            ls -lah /root/cert/
+            chmod 755 $certPath/*
         fi
         
         echo ""
-        echo -e "${green}-------->>>> 证书申请成功，正在安装证书...${plain}"
+        echo -e "${green}============================================${plain}"
+        echo -e "${green}  SSL 证书配置成功！${plain}"
+        echo -e "${green}============================================${plain}"
+        echo ""
+        echo -e "${yellow}证书路径：${plain}"
+        echo -e "${green}  公钥: ${certPath}/fullchain.pem${plain}"
+        echo -e "${green}  私钥: ${certPath}/privkey.pem${plain}"
+        echo ""
         
-        # Install certificate
-        cert_dir="/root/cert/${domain_name}"
-        mkdir -p ${cert_dir}
+        # 配置面板证书
+        echo -e "${yellow}-------->>>> 正在配置面板SSL证书...${plain}"
+        /usr/local/x-ui/x-ui setting -cert ${certPath}/fullchain.pem -key ${certPath}/privkey.pem
         
-        ~/.acme.sh/acme.sh --install-cert -d ${domain_name} \
-            --key-file "${cert_dir}/privkey.pem" \
-            --fullchain-file "${cert_dir}/fullchain.pem"
+        echo ""
+        echo -e "${green}============================================${plain}"
+        echo -e "${green}  面板SSL证书配置完成！${plain}"
+        echo -e "${green}============================================${plain}"
+        echo ""
+        echo -e "${yellow}面板访问地址：${plain}"
+        echo -e "${green}  https://${domain}:${config_port}/${config_webBasePath}${plain}"
+        echo ""
+        echo -e "${yellow}提示：如果申请证书失败，请确保 80 和 443 端口已放行${plain}"
+        echo ""
         
-        if [[ $? -eq 0 ]]; then
-            echo ""
-            echo -e "${green}============================================${plain}"
-            echo -e "${green}  SSL 证书配置成功！${plain}"
-            echo -e "${green}============================================${plain}"
-            echo ""
-            echo -e "${yellow}证书路径：${plain}"
-            echo -e "${green}  公钥: ${cert_dir}/fullchain.pem${plain}"
-            echo -e "${green}  私钥: ${cert_dir}/privkey.pem${plain}"
-            echo ""
-            
-            # Set up auto-renewal
-            ~/.acme.sh/acme.sh --upgrade --auto-upgrade > /dev/null 2>&1
-            echo -e "${green}自动续签已启用${plain}"
-            echo ""
-            
-            # Configure panel with certificate paths
-            echo -e "${yellow}-------->>>> 正在配置面板SSL证书...${plain}"
-            /usr/local/x-ui/x-ui setting -cert ${cert_dir}/fullchain.pem -key ${cert_dir}/privkey.pem
-            
-            echo ""
-            echo -e "${green}============================================${plain}"
-            echo -e "${green}  面板SSL证书配置完成！${plain}"
-            echo -e "${green}============================================${plain}"
-            echo ""
-            echo -e "${yellow}面板访问地址：${plain}"
-            echo -e "${green}  https://${domain_name}:${config_port}/${config_webBasePath}${plain}"
-            echo ""
-            
-        else
-            echo -e "${red}证书安装失败！${plain}"
-            return 1
-        fi
     else
         echo ""
         echo -e "${red}------------->>>> 跳过域名/SSL配置 <<<<-------------${plain}"
