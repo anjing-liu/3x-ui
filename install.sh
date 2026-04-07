@@ -357,6 +357,16 @@ echo -e "----------------------------------------------"
 sleep 4
 info=$(/usr/local/x-ui/x-ui setting -show true)
 echo -e "${info}${plain}"
+panelPort=$(echo "$info" | grep -oP 'port:\s*\K\d+' | head -1)
+panelPath=$(echo "$info" | grep -oP 'webBasePath:\s*\K\S+' | head -1)
+serverIP=$(curl -s4m8 ifconfig.me -k 2>/dev/null || curl -s4 ip.sb 2>/dev/null)
+[[ -z "$panelPort" ]] && panelPort="2053"
+[[ -z "$panelPath" ]] && panelPath="/"
+[[ "$panelPath" != "/"* ]] && panelPath="/${panelPath}"
+echo ""
+if [[ -n "$serverIP" ]]; then
+    echo -e "${yellow}面板 IP 访问地址：${green}http://${serverIP}:${panelPort}${panelPath}${plain}"
+fi
 echo ""
 echo -e "若您忘记了上述面板信息，后期可通过x-ui命令进入脚本${red}输入数字〔10〕选项获取${plain}"
 echo ""
